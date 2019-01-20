@@ -1,11 +1,10 @@
-package com.invech.platform;
+package com.invech.platform.service;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
-//@EnableFeignClients
-//@EnableEurekaClient
+
 @EnableDiscoveryClient
 @SpringBootApplication
 public class DsfCenterServiceApplication {

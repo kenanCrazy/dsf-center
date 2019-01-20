@@ -13,6 +13,11 @@
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
+  <properties>
+    <javax.version>2.3.0</javax.version>
+    <javax.activation.version>1.1.1</javax.activation.version>
+  </properties>
+
   <dependencies>
     <dependency>
       <groupId>com.invech.platform</groupId>
@@ -29,18 +34,28 @@
       <artifactId>bet-platform</artifactId>
       <version>1.0-SNAPSHOT</version>
     </dependency>
+    <!--java11 移除javax-->
+    <dependency>
+      <groupId>javax.xml.bind</groupId>
+      <artifactId>jaxb-api</artifactId>
+      <version>${javax.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.sun.xml.bind</groupId>
+      <artifactId>jaxb-core</artifactId>
+      <version>${javax.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.sun.xml.bind</groupId>
+      <artifactId>jaxb-impl</artifactId>
+      <version>${javax.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.activation</groupId>
+      <artifactId>activation</artifactId>
+      <version>${javax.activation.version}</version>
+    </dependency>
   </dependencies>
 
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>com.invech.platform</groupId>
-        <artifactId>dsf-center</artifactId>
-        <version>1.0-SNAPSHOT</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
 
 </project>
