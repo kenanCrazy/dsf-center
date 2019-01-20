@@ -27,7 +27,7 @@
 
 	<properties>
 		<java.version>1.8</java.version>
-		<springboot.version>2.1.2.RELEASE</springboot.version>
+		<eureka.version>1.4.6.RELEASE</eureka.version>
 		<dsf.center.dao.version>1.0-SNAPSHOT</dsf.center.dao.version>
 		<dsf.center.data.version>1.0-SNAPSHOT</dsf.center.data.version>
 		<dsf.modules.version>1.0-SNAPSHOT</dsf.modules.version>
@@ -122,7 +122,7 @@
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-eureka</artifactId>
-			<version>${springboot.version}</version>
+			<version>${eureka.version}</version>
 		</dependency>
 
 	</dependencies>
