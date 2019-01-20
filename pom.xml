@@ -23,6 +23,7 @@
 		<module>dsf-center-dao</module>
 		<module>dsf-center-data</module>
 		<module>dsf-modules</module>
+		<module>erueka-server</module>
 	</modules>
 
 	<properties>
