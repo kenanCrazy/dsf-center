@@ -1,5 +1,7 @@
 /target/
 !.mvn/wrapper/maven-wrapper.jar
+.mvn
+erueka-server/.mvn
 
 ### STS ###
 .apt_generated
