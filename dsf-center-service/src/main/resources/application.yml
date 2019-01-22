@@ -1,0 +1,18 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: dsf-center-service
+#  cloud:
+#    client:
+#      ipAddress: 192.168.1.104
+
+eureka:
+  instance:
+    preferIpAddress: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}:${eureka.instance.appname}
+    appname: dsf-center-service-01
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:7000/eureka/

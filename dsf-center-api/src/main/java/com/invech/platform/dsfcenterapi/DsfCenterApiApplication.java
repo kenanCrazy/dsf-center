@@ -1,13 +1,13 @@
-package com.invech.platform.dsfcenterdao;
+package com.invech.platform.dsfcenterapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DsfCenterDaoApplication {
+public class DsfCenterApiApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(DsfCenterDaoApplication.class, args);
+        SpringApplication.run(DsfCenterApiApplication.class, args);
     }
 
 }
