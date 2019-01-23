@@ -3,9 +3,36 @@ server:
 spring:
   application:
     name: dsf-center-service
-#  cloud:
-#    client:
-#      ipAddress: 192.168.1.104
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.cj.jdbc.Driver
+    druid:
+      initial-size: 10
+      max-active: 100
+      min-idle: 10
+      max-wait: 60000
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: SELECT 1 FROM DUAL
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+      filter:
+        stat:
+          log-slow-sql: true
+          slow-sql-millis: 1000
+          merge-sql: true
+        wall:
+          config:
+            multi-statement-allow: true
+      url: jdbc:mysql://localhost:3306/dsf_center?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+      password: abcd1234
+      username: ryan
 
 eureka:
   instance:
@@ -16,3 +43,22 @@ eureka:
   client:
     service-url:
       defaultZone: http://${eureka.instance.hostname}:7000/eureka/
+#mybatis:
+#  mapperLocations: classpath:mapper/**/*.xml
+#  configLocation: classpath:mybatis.xml
+
+#mapper:
+#  mappers:
+#    - com.invech.platform.dsfcenterdao.mapper
+#  style: normal
+#  not-empty: false
+#  identity: MYSQL
+
+logging:
+  config: classpath:logback-admin.xml
+log:
+  level:
+    root: info
+    mylog: debug
+  file: ./log/dsf-center-service.log
+  maxsize: 60MB
