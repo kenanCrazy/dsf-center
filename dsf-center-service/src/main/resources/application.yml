@@ -62,3 +62,7 @@ log:
     mylog: debug
   file: ./log/dsf-center-service.log
   maxsize: 60MB
+
+#  swagger 开关
+swagger:
+  profile: dev
