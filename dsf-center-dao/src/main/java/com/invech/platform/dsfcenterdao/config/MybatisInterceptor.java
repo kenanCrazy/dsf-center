@@ -17,7 +17,7 @@ import java.util.Properties;
 /**
  * mybatis 全局sql过滤
  * mybatis 的insert 和 delete 也是调用了 update方法
- * Created by William on 2018/1/20.
+ * Created by Ryan on 2019/01/20.
  */
 @Slf4j
 @Intercepts({@Signature(type = StatementHandler.class,method = "prepare",args = {Connection.class,Integer.class})})
