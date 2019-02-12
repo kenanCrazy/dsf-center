@@ -1,0 +1,62 @@
+server:
+  port: 8089
+spring:
+  application:
+    name: dsf-center-service
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.1.235:3306/dsf_center_rmi?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    password: abcd1234
+    username: root
+#    username: ryan
+    druid:
+      initial-size: 10
+      max-active: 100
+      min-idle: 10
+      max-wait: 60000
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: SELECT 1 FROM DUAL
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+      filter:
+        stat:
+          log-slow-sql: true
+          slow-sql-millis: 1000
+          merge-sql: true
+        wall:
+          config:
+            multi-statement-allow: true
+
+
+eureka:
+  instance:
+    preferIpAddress: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}:${eureka.instance.appname}
+    appname: dsf-center-service-01
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:7000/eureka/
+
+mybatis:
+  mapperLocations: classpath:mapper/**/*.xml
+  configLocation: classpath:mybatis.xml
+
+mapper:
+  mappers:
+    - com.invech.platform.dsfcenterdao.config.MyMapper
+  style: normal
+  not-empty: false
+  identity: MYSQL
+
+#  swagger 开关
+swagger:
+  profile: dev

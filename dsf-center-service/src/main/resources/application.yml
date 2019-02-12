@@ -1,38 +1,6 @@
-server:
-  port: 8081
 spring:
-  application:
-    name: dsf-center-service
-  datasource:
-    type: com.alibaba.druid.pool.DruidDataSource
-    driverClassName: com.mysql.cj.jdbc.Driver
-    druid:
-      initial-size: 10
-      max-active: 100
-      min-idle: 10
-      max-wait: 60000
-      pool-prepared-statements: true
-      max-pool-prepared-statement-per-connection-size: 20
-      time-between-eviction-runs-millis: 60000
-      min-evictable-idle-time-millis: 300000
-      validation-query: SELECT 1 FROM DUAL
-      test-while-idle: true
-      test-on-borrow: false
-      test-on-return: false
-      stat-view-servlet:
-        enabled: true
-        url-pattern: /druid/*
-      filter:
-        stat:
-          log-slow-sql: true
-          slow-sql-millis: 1000
-          merge-sql: true
-        wall:
-          config:
-            multi-statement-allow: true
-      url: jdbc:mysql://localhost:3306/dsf_center?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
-      password: abcd1234
-      username: ryan
+  profiles:
+    active: dev
 
 eureka:
   instance:
@@ -62,7 +30,3 @@ log:
     mylog: debug
   file: ./log/dsf-center-service.log
   maxsize: 60MB
-
-#  swagger 开关
-swagger:
-  profile: dev
