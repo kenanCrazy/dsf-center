@@ -2,7 +2,7 @@ package com.invech.platform.dsfcenterdao.service;
 
 import com.invech.platform.dsfcenterdao.dao.SysMapper;
 import com.invech.platform.dsfcenterdao.mapper.TSchemaMapper;
-import com.invech.platform.dsfcenterdata.utils.entity.TSchema;
+import com.invech.platform.dsfcenterdata.entity.TSchema;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

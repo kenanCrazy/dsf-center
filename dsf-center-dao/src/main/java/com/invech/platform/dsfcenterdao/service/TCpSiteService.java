@@ -4,13 +4,13 @@ package com.invech.platform.dsfcenterdao.service;
 import com.invech.platform.dsfcenterdao.dao.SysMapper;
 import com.invech.platform.dsfcenterdao.mapper.TSiteMapper;
 import com.invech.platform.dsfcenterdao.mapper.TSiteUrlMapper;
-import com.invech.platform.dsfcenterdata.utils.entity.TSite;
-import com.invech.platform.dsfcenterdata.utils.entity.TGmApiPrefix;
-import com.invech.platform.dsfcenterdata.utils.entity.TSiteurl;
-import com.invech.platform.dsfcenterdata.utils.entity.TSchema;
-import com.invech.platform.dsfcenterdata.utils.response.R;
-import com.invech.platform.dsfcenterdata.utils.response.RRException;
-import com.invech.platform.dsfcenterdata.utils.utils.DateUtil;
+import com.invech.platform.dsfcenterdata.entity.TSite;
+import com.invech.platform.dsfcenterdata.entity.TGmApiPrefix;
+import com.invech.platform.dsfcenterdata.entity.TSiteurl;
+import com.invech.platform.dsfcenterdata.entity.TSchema;
+import com.invech.platform.dsfcenterdata.response.R;
+import com.invech.platform.dsfcenterdata.response.RRException;
+import com.invech.platform.dsfcenterdata.utils.DateUtil;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -80,7 +80,7 @@ public class TCpSiteService extends BaseService<TSiteMapper, TSite> {
 
   @Bean
   public Map<String, String> initSchemaName() {
-    List<TSite> tSites = sysMapper.findCpSite();
+    List<TSite> tSites = sysMapper.findSite();
     Map<String, String> schemaName = new HashMap<>();
     schemaName.clear();
     for (TSite tSite : tSites) {

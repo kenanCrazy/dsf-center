@@ -3,22 +3,22 @@
 
 <mapper
 	namespace="com.invech.platform.dsfcenterdao.dao.SysMapper">
-	<select id="findCpSiteOne"
-		resultType="com.invech.platform.dsfcenterdata.utils.entity.TSite">
+	<select id="findSiteOne"
+		resultType="com.invech.platform.dsfcenterdata.entity.TSite">
 		select t1.*,t2.siteUrl
 		from t_cp_site t1,t_cp_siteurl t2
 		where t1.id=t2.siteId and t1.available=1 and
 		t2.siteUrl like
 		CONCAT('%',#{siteUrl},'%') limit 1
 	</select>
-	<select id="findCpSite"
-		resultType="com.invech.platform.dsfcenterdata.utils.entity.TSite">
+	<select id="findSite"
+		resultType="com.invech.platform.dsfcenterdata.entity.TSite">
 		select t1.*,t2.siteUrl
 		from t_cp_site t1,t_cp_siteurl t2
 		where t1.id=t2.siteId and t1.available=1
 	</select>
 	<select id="findGmApiOne"
-		resultType="com.invech.platform.dsfcenterdata.utils.entity.TGmApi">
+		resultType="com.invech.platform.dsfcenterdata.entity.TGmApi">
 		select t1.siteCode,t2.prefix,t3.* from t_cp_site
 		t1,t_gm_apiprefix
 		t2,t_gm_api t3,t_gm_depot t4 where t1.id=t2.siteId and
@@ -31,20 +31,20 @@
 		where id=#{id} and isUsed=0
 	</update>
 	<select id="selectTschemaOne"
-		resultType="com.invech.platform.dsfcenterdata.utils.entity.TSchema">
+		resultType="com.invech.platform.dsfcenterdata.entity.TSchema">
 		select * from t_schema where isUsed=0 order by id asc limit
 		1
 	</select>
 	<select id="listSysConfig"
-		resultType="com.invech.platform.dsfcenterdata.utils.entity.TSysConfig">
+		resultType="com.invech.platform.dsfcenterdata.entity.TSysConfig">
 		select * from s_sys_config where groups=#{groups};
 	</select>
 
-	<select id="getCpSiteCode" resultType="java.lang.String">
+	<select id="getSiteCode" resultType="java.lang.String">
 		select a.siteCode from t_cp_site a where a.schemaName=#{siteCode}
 	</select>
 
-	<update id="updateTschemaSiteCode" parameterType="com.invech.platform.dsfcenterdata.utils.entity.TSchema">
+	<update id="updateTschemaSiteCode" parameterType="com.invech.platform.dsfcenterdata.entity.TSchema">
 		update t_schema set siteCode = #{siteCode} , isUsed =  #{isUsed} where id = #{id} and isUsed = 0
 	</update>
 	<!--
@@ -55,13 +55,13 @@
 	INSERT INTO `saasops_manage`.`t_gm_apiprefix` ( `apiId`, `prefix`, `siteId`, `available`, `createUser`, `createTime`, `modifyUser`, `modifyTime`) VALUES ( '50019', 'model', '84', '1', '', '2018-03-23 09:35:35', '', '2018-03-23 09:35:35');
 	INSERT INTO `saasops_manage`.`t_gm_apiprefix` ( `apiId`, `prefix`, `siteId`, `available`, `createUser`, `createTime`, `modifyUser`, `modifyTime`) VALUES ( '20012', 'model', '84', '1', '', '2018-03-23 09:36:14', '', '2018-03-23 09:36:14');
 	-->
-	<insert id="insertApiPrefix" parameterType="com.invech.platform.dsfcenterdata.utils.entity.TGmApiPrefix">
+	<insert id="insertApiPrefix" parameterType="com.invech.platform.dsfcenterdata.entity.TGmApiPrefix">
 	INSERT INTO t_gm_apiprefix (`apiId`, `prefix`, `siteId`, `available`, `createUser`, `createTime`, `modifyUser`, `modifyTime`)
 	VALUES
 	( #{apiId}, #{prefix}, #{siteId}, '1', #{createUser}, #{createTime}, #{modifyUser}, #{modifyTime});
 	</insert>
 
-	<select id="selectApiPrefixByModel" resultType="com.invech.platform.dsfcenterdata.utils.entity.TGmApiPrefix">
+	<select id="selectApiPrefixByModel" resultType="com.invech.platform.dsfcenterdata.entity.TGmApiPrefix">
 		select * from t_gm_apiprefix where siteId = 84 ;
 	</select>
 </mapper>

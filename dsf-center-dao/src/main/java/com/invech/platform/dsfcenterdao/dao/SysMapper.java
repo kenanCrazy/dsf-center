@@ -13,9 +13,9 @@ import org.apache.ibatis.annotations.Param;
 @Mapper
 public interface SysMapper {
 
-  TSite findCpSiteOne(@Param("siteUrl") String siteUrl);
+  TSite findSiteOne(@Param("siteUrl") String siteUrl);
 
-  List<TSite> findCpSite();
+  List<TSite> findSite();
 
   TGmApi findGmApiOne(@Param("depotId") Integer depotId, @Param("siteCode") String siteCode);
 
@@ -25,7 +25,7 @@ public interface SysMapper {
 
   List<TSysConfig> listSysConfig(@Param("groups") String groups);
 
-  String getCpSiteCode(@Param("siteCode") String siteCode);
+  String getSiteCode(@Param("siteCode") String siteCode);
 
   int updateTschemaSiteCode(TSchema TSchema);
 
