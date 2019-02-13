@@ -12,15 +12,15 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  */
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
-    @Autowired
-    private AuthTokenFilter authorizationInterceptor;
+
+//    @Autowired
+//    private AuthTokenFilter authorizationInterceptor;
 //    @Autowired
 //    private LoginUserHandlerMethodArgumentResolver loginUserHandlerMethodArgumentResolver;
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(authorizationInterceptor).addPathPatterns("/api/**").excludePathPatterns("/api/sys/getSiteCode")
-        .excludePathPatterns("/api/user/captcha/*");
+        registry.addInterceptor(new AuthTokenFilter()).addPathPatterns("/api/**").excludePathPatterns("/api/site/getSiteCode");
     }
 
 //    @Override

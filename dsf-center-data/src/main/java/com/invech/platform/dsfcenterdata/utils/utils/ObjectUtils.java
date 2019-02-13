@@ -1,4 +1,4 @@
-package com.invech.platform.dsfcenterdata.utils;
+package com.invech.platform.dsfcenterdata.utils.utils;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;

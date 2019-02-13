@@ -57,6 +57,7 @@ mapper:
   not-empty: false
   identity: MYSQL
 
-#  swagger 开关
+#  swagger 开关 http://localhost:8089/swagger-ui.html
 swagger:
   profile: dev
+  scope: com.invech.platform.dsfcenterservice.controller

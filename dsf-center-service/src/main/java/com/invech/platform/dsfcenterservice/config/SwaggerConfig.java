@@ -21,7 +21,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableAutoConfiguration
 public class SwaggerConfig {
 
-    @Value("${swagger.scope: com.invech.platform.dsfcenterservice}")
+    @Value("${swagger.scope: com.invech.platform.dsfcenterservice.controller}")
     private String basePackage;
 
     @Value("${swagger.profile}")
@@ -48,18 +48,6 @@ public class SwaggerConfig {
 
     }
 
-    //com.eveb.saasops.api.modules.user
-
-    /*
-     public Docket buildDocket() {
-     return new Docket(DocumentationType.SWAGGER_2)
-              .groupName("dev")
-          .apiInfo(buildApiInf())
-          .select()
-          .apis(RequestHandlerSelectors.basePackage("com.eveb.saasops.api.modules"))//要扫描的API(Controller)基础包
-          .paths(PathSelectors.any())
-          .build();
-    }*/
     private ApiInfo buildApiInf() {
         return new ApiInfoBuilder()
                 .title("invech dsf-center-service API文档")

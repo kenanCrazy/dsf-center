@@ -1,6 +1,5 @@
-package com.invech.platform.dsfcenterdata.utils;
+package com.invech.platform.dsfcenterdata.utils.utils;
 
-import java.io.Serializable;
 import java.util.*;
 
 public class CollectionUtils {

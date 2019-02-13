@@ -9,14 +9,13 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 
 @Slf4j
-@Component
 public class AuthTokenFilter extends HandlerInterceptorAdapter {
 
   @Override
   public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
       throws Exception {
+    log.info("AuthTokenFilter");
 
-
-    return super.preHandle(request, response, handler);
+    return true;
   }
 }
