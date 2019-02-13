@@ -1,7 +1,7 @@
 package com.invech.platform.dsfcenterservice.controller.site;
 
-import com.invech.platform.dsfcenterdata.utils.utils.AESUtil;
-import com.invech.platform.dsfcenterdata.utils.response.R;
+import com.invech.platform.dsfcenterdata.utils.AESUtil;
+import com.invech.platform.dsfcenterdata.response.R;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@RequestMapping("/api/site")
+@RequestMapping("/dsf-center/site")
 @Api(value = "SiteCode", description = "站点有关")
 public class SiteCodeController {
 

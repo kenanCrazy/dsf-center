@@ -52,7 +52,7 @@ mybatis:
 
 mapper:
   mappers:
-    - com.invech.platform.dsfcenterdao.config.MyMapper
+    - com.invech.platform.dsfcenterdao.config.MybatisInterceptor
   style: normal
   not-empty: false
   identity: MYSQL
