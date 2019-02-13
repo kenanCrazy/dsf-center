@@ -1,4 +1,4 @@
-CREATE TABLE `s_sys_config` (
+CREATE TABLE `t_sys_config` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `groups` varchar(50) NOT NULL,
   `keys` varchar(100) NOT NULL,
@@ -8,118 +8,118 @@ CREATE TABLE `s_sys_config` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 
-CREATE TABLE `t_cp_site` (
+CREATE TABLE `t_site` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `siteCode` varchar(12) NOT NULL,
-  `siteName` varchar(40) DEFAULT NULL,
-  `schemaName` varchar(12) DEFAULT NULL,
-  `isapi` tinyint(4) NOT NULL DEFAULT '1',
+  `site_code` varchar(12) NOT NULL,
+  `site_name` varchar(40) DEFAULT NULL,
+  `schema_name` varchar(12) DEFAULT NULL,
+  `is_api` tinyint(4) NOT NULL DEFAULT '1',
   `currency` varchar(4) NOT NULL DEFAULT 'RMB',
-  `companyId` int(11) DEFAULT NULL,
-  `startDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `endDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `company_id` int(11) DEFAULT NULL,
+  `start_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `end_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `available` tinyint(4) NOT NULL DEFAULT '1',
-  `useTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `use_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `memo` varchar(200) DEFAULT NULL,
-  `createUser` varchar(16) DEFAULT NULL,
-  `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `modifyUser` varchar(16) DEFAULT NULL,
-  `modifyTime` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-  `companyUser` varchar(32) DEFAULT NULL,
-  PRIMARY KEY (`id`,`siteCode`) USING BTREE,
-  UNIQUE KEY `t_cp_site_schema_uindex` (`schemaName`) USING BTREE
+  `create_user` varchar(16) DEFAULT NULL,
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modify_user` varchar(16) DEFAULT NULL,
+  `modify_time` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `company_user` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`id`,`site_code`) USING BTREE,
+  UNIQUE KEY `t_cp_site_schema_uindex` (`schema_name`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 
-CREATE TABLE `t_cp_siteurl` (
+CREATE TABLE `t_site_url` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `siteId` int(11) NOT NULL,
-  `siteCode` varchar(12) NOT NULL,
-  `siteUrl` varchar(200) DEFAULT NULL,
+  `site_id` int(11) NOT NULL,
+  `site_code` varchar(12) NOT NULL,
+  `site_url` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE `t_gm_api` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `depotId` int(12) NOT NULL,
-  `apiName` varchar(40) NOT NULL,
-  `pcUrl` varchar(100) NOT NULL,
-  `pcUrl2` varchar(100) DEFAULT NULL,
-  `mbUrl` varchar(100) NOT NULL,
-  `mbUrl2` varchar(100) DEFAULT NULL,
-  `agyAcc` varchar(20) NOT NULL,
-  `md5Key` varchar(32) NOT NULL,
-  `secureCode` text,
-  `webName` varchar(60) DEFAULT NULL,
-  `proxyFore` varchar(20) NOT NULL,
-  `sortId` int(11) DEFAULT NULL,
+  `depot_id` int(12) NOT NULL,
+  `api_name` varchar(40) NOT NULL,
+  `pc_url` varchar(100) NOT NULL,
+  `pc_url2` varchar(100) DEFAULT NULL,
+  `mb_url` varchar(100) NOT NULL,
+  `mb_url2` varchar(100) DEFAULT NULL,
+  `agy_acc` varchar(20) NOT NULL,
+  `md5_key` varchar(32) NOT NULL,
+  `secure_code` text,
+  `web_name` varchar(60) DEFAULT NULL,
+  `proxy_fore` varchar(20) NOT NULL,
+  `sort_id` int(11) DEFAULT NULL,
   `memo` varchar(200) DEFAULT NULL,
   `available` tinyint(4) NOT NULL,
-  `createUser` varchar(16) NOT NULL,
-  `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `modifyUser` varchar(16) DEFAULT NULL,
-  `modifyTime` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-  `defApi` tinyint(4) DEFAULT '0',
+  `create_user` varchar(16) NOT NULL,
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modify_user` varchar(16) DEFAULT NULL,
+  `modify_time` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `def_api` tinyint(4) DEFAULT '0',
   PRIMARY KEY (`id`),
-  UNIQUE KEY `t_gm_api_name` (`apiName`) USING BTREE
+  UNIQUE KEY `t_gm_api_name` (`api_name`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE `t_gm_api_prefix` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `apiId` int(12) NOT NULL,
+  `api_id` int(12) NOT NULL,
   `prefix` varchar(40) NOT NULL,
-  `siteId` int(11) DEFAULT NULL,
+  `siteid` int(11) DEFAULT NULL,
   `available` tinyint(4) NOT NULL,
-  `createUser` varchar(255) DEFAULT NULL,
-  `createTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `modifyUser` varchar(255) DEFAULT NULL,
-  `modifyTime` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `create_user` varchar(255) DEFAULT NULL,
+  `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `modify_user` varchar(255) DEFAULT NULL,
+  `modify_time` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE `t_gm_category` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `categoryName` varchar(40) NOT NULL,
-  `sortId` int(11) NOT NULL,
+  `category_name` varchar(40) NOT NULL,
+  `sort_id` int(11) NOT NULL,
   `available` tinyint(4) NOT NULL,
   `memo` varchar(200) DEFAULT NULL,
-  `createUser` varchar(16) NOT NULL,
-  `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `modifyUser` varchar(16) DEFAULT NULL,
-  `modifyTime` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-  `parentId` int(11) NOT NULL,
-  `treeId` varchar(40) DEFAULT NULL,
+  `create_user` varchar(16) NOT NULL,
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modify_user` varchar(16) DEFAULT NULL,
+  `modify_time` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `parent_id` int(11) NOT NULL,
+  `tree_id` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `index_t_gm_depotcatName` (`categoryName`) USING BTREE,
-  UNIQUE KEY `index_t_gm_depottreeId` (`treeId`) USING BTREE
+  UNIQUE KEY `index_t_gm_depotcat_name` (`category_name`) USING BTREE,
+  UNIQUE KEY `index_t_gm_depot_tree_id` (`tree_id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE `t_gm_depot` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `depotName` varchar(40) NOT NULL,
-  `depotCode` varchar(255) DEFAULT NULL,
+  `depot_name` varchar(40) NOT NULL,
+  `depot_code` varchar(255) DEFAULT NULL,
   `available` tinyint(4) NOT NULL,
   `memo` varchar(200) DEFAULT NULL,
-  `createUser` varchar(16) DEFAULT NULL,
-  `createTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `modifyUser` varchar(16) DEFAULT NULL,
-  `modifyTime` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-  `startDate` datetime DEFAULT NULL,
-  `endDate` datetime DEFAULT NULL,
-  `sortId` int(11) DEFAULT NULL,
+  `create_user` varchar(16) DEFAULT NULL,
+  `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `modify_user` varchar(16) DEFAULT NULL,
+  `modify_time` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `start_date` datetime DEFAULT NULL,
+  `end_date` datetime DEFAULT NULL,
+  `sort_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `index_t_gm_depot_depotName` (`depotName`) USING BTREE
+  UNIQUE KEY `index_t_gm_depot_depot_name` (`depot_name`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE `t_gm_depot_category` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `depotId` int(11) DEFAULT NULL,
-  `categoryId` int(11) DEFAULT NULL,
+  `depot_id` int(11) DEFAULT NULL,
+  `category_id` int(11) DEFAULT NULL,
   `sort` int(11) DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
@@ -127,46 +127,46 @@ CREATE TABLE `t_gm_depot_category` (
 
 CREATE TABLE `t_gm_game` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `categoryId` int(11) NOT NULL,
-  `depotId` int(11) NOT NULL,
-  `depotName` varchar(45) DEFAULT NULL,
-  `gameCode` varchar(100) DEFAULT NULL,
-  `gameName` varchar(40) NOT NULL,
-  `gameTag` varchar(100) DEFAULT NULL,
-  `gameParam` varchar(200) DEFAULT NULL,
+  `category_id` int(11) NOT NULL,
+  `depot_id` int(11) NOT NULL,
+  `depot_name` varchar(45) DEFAULT NULL,
+  `game_code` varchar(100) DEFAULT NULL,
+  `game_name` varchar(40) NOT NULL,
+  `game_tag` varchar(100) DEFAULT NULL,
+  `game_param` varchar(200) DEFAULT NULL,
   `available` tinyint(4) DEFAULT '0',
-  `PcLogo` varchar(100) DEFAULT NULL,
-  `PhoneLogo` varchar(100) DEFAULT NULL,
-  `enablePc` tinyint(4) DEFAULT '1',
-  `enableMb` tinyint(4) DEFAULT '1',
-  `enableTest` tinyint(4) DEFAULT '0',
-  `enableHot` tinyint(4) DEFAULT NULL,
-  `ebableNew` tinyint(4) DEFAULT NULL,
+  `pc_logo` varchar(100) DEFAULT NULL,
+  `phone_logo` varchar(100) DEFAULT NULL,
+  `enable_pc` tinyint(4) DEFAULT '1',
+  `enable_mb` tinyint(4) DEFAULT '1',
+  `enable_test` tinyint(4) DEFAULT '0',
+  `enable_hot` tinyint(4) DEFAULT NULL,
+  `ebable_new` tinyint(4) DEFAULT NULL,
   `memo` varchar(200) DEFAULT NULL,
-  `createUser` varchar(16) DEFAULT NULL,
-  `createTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `modifyUser` varchar(16) DEFAULT NULL,
-  `modifyTime` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-  `gameNameEn` varchar(40) DEFAULT NULL,
-  `gameId` varchar(20) DEFAULT NULL,
-  `lastdayPer` int(11) DEFAULT '0',
-  `sortId` int(11) NOT NULL DEFAULT '0',
-  `clickNum` int(11) NOT NULL DEFAULT '0',
-  `goodNum` int(11) NOT NULL DEFAULT '0',
+  `create_user` varchar(16) DEFAULT NULL,
+  `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `modify_user` varchar(16) DEFAULT NULL,
+  `modify_time` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `game_name_en` varchar(40) DEFAULT NULL,
+  `game_id` varchar(20) DEFAULT NULL,
+  `lastday_per` int(11) DEFAULT '0',
+  `sort_id` int(11) NOT NULL DEFAULT '0',
+  `click_num` int(11) NOT NULL DEFAULT '0',
+  `good_num` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE `t_schema` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `schemaName` varchar(12) NOT NULL,
-  `simpleName` varchar(4) DEFAULT NULL,
-  `isUsed` tinyint(4) NOT NULL DEFAULT '0',
-  `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `modifyTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `siteCode` varchar(12) DEFAULT NULL,
+  `schema_name` varchar(12) NOT NULL,
+  `simple_name` varchar(4) DEFAULT NULL,
+  `is_used` tinyint(4) NOT NULL DEFAULT '0',
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modify_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `site_code` varchar(12) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE `transfer_log` (
