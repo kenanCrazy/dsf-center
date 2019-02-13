@@ -117,7 +117,7 @@ public class TGmGame implements Serializable {
 
     @Transient
     @ApiModelProperty(value = "游戏类别名称")
-    private String catName;
+    private String categoryName;
 
     @Transient
     @ApiModelProperty(value = "游戏平台名称")
