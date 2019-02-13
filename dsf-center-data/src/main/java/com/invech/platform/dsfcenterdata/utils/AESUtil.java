@@ -1,4 +1,4 @@
-package com.invech.platform.dsfcenterdata.utils.utils;
+package com.invech.platform.dsfcenterdata.utils;
 
 
 

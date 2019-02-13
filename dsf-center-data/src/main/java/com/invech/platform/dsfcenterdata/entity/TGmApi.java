@@ -1,4 +1,4 @@
-package com.invech.platform.dsfcenterdata.utils.entity;
+package com.invech.platform.dsfcenterdata.entity;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

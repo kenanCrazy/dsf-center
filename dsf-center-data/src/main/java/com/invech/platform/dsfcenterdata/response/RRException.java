@@ -1,4 +1,4 @@
-package com.invech.platform.dsfcenterdata.utils.response;
+package com.invech.platform.dsfcenterdata.response;
 
 /**
  * 自定义异常

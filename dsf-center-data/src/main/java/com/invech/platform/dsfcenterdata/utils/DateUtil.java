@@ -1,5 +1,5 @@
 
-package com.invech.platform.dsfcenterdata.utils.utils;
+package com.invech.platform.dsfcenterdata.utils;
 
 import java.text.DateFormat;
 import java.text.ParseException;

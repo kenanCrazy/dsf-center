@@ -1,4 +1,4 @@
-package com.invech.platform.dsfcenterdata.utils.entity;
+package com.invech.platform.dsfcenterdata.entity;
 
 
 import com.invech.platform.dsfcenterdata.utils.utils.DateUtil;
