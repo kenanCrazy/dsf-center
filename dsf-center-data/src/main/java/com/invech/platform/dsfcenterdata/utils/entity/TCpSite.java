@@ -14,7 +14,7 @@ import lombok.Setter;
 @Setter
 @Getter
 @ApiModel(value = "站点信息", description = "站点信息")
-@Table(name = "t_cp_site")
+@Table(name = "t_site")
 public class TCpSite implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id

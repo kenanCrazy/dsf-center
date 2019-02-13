@@ -11,7 +11,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Table(name = "t_gm_apiprefix")
+@Table(name = "t_gm_api_prefix")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

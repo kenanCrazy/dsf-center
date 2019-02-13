@@ -16,7 +16,7 @@ import lombok.Setter;
 @Getter
 @ApiModel(value = "根据游戏类别找出对应那些平台有这个类别的游戏", description = "")
 @Table(name = "t_gm_depot_category")
-public class TGmDepotcat implements Serializable {
+public class TGmDepotCategory implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

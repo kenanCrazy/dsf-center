@@ -7,6 +7,7 @@ import java.util.Map;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.persistence.Transient;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,6 +16,7 @@ import lombok.Setter;
 @Setter
 @Getter
 @ApiModel(value = "TGmApi", description = "")
+@Table(name = "t_gm_api")
 public class TGmApi implements Serializable{
 private static final long serialVersionUID=1L;
 @Id

@@ -13,7 +13,7 @@ import lombok.Setter;
 @Setter
 @Getter
 @ApiModel(value = "站点url信息表", description = "站点url信息表")
-@Table(name = "t_cp_siteurl")
+@Table(name = "t_siteurl")
 public class TcpSiteurl implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
