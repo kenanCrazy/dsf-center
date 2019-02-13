@@ -93,7 +93,7 @@ CREATE TABLE `t_gm_category` (
   `parentId` int(11) NOT NULL,
   `treeId` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `index_t_gm_depotcatName` (`catName`) USING BTREE,
+  UNIQUE KEY `index_t_gm_depotcatName` (`categoryName`) USING BTREE,
   UNIQUE KEY `index_t_gm_depottreeId` (`treeId`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
@@ -127,7 +127,7 @@ CREATE TABLE `t_gm_depot_category` (
 
 CREATE TABLE `t_gm_game` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `catId` int(11) NOT NULL,
+  `categoryId` int(11) NOT NULL,
   `depotId` int(11) NOT NULL,
   `depotName` varchar(45) DEFAULT NULL,
   `gameCode` varchar(100) DEFAULT NULL,
