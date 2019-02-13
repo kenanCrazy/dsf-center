@@ -1,11 +1,11 @@
 package com.invech.platform.dsfcenterdao.dao;
 
 
-import com.invech.platform.dsfcenterdata.utils.entity.TSysConfig;
-import com.invech.platform.dsfcenterdata.utils.entity.TSite;
-import com.invech.platform.dsfcenterdata.utils.entity.TGmApi;
-import com.invech.platform.dsfcenterdata.utils.entity.TGmApiPrefix;
-import com.invech.platform.dsfcenterdata.utils.entity.TSchema;
+import com.invech.platform.dsfcenterdata.entity.TSysConfig;
+import com.invech.platform.dsfcenterdata.entity.TSite;
+import com.invech.platform.dsfcenterdata.entity.TGmApi;
+import com.invech.platform.dsfcenterdata.entity.TGmApiPrefix;
+import com.invech.platform.dsfcenterdata.entity.TSchema;
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;

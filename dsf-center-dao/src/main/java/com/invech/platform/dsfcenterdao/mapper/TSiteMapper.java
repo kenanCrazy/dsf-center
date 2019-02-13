@@ -2,7 +2,7 @@ package com.invech.platform.dsfcenterdao.mapper;
 
 
 import com.invech.platform.dsfcenterdao.config.MybatisAutoMapper;
-import com.invech.platform.dsfcenterdata.utils.entity.TSite;
+import com.invech.platform.dsfcenterdata.entity.TSite;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Component;
 
