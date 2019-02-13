@@ -27,11 +27,11 @@ public class TGmDepotCategory implements Serializable {
     private Integer depotId;
 
     @ApiModelProperty(value = "类别Id")
-    private Integer catId;
+    private Integer categoryId;
 
     @ApiModelProperty(value = "类别名称")
     @Transient
-    private String catName;
+    private String categoryName;
 
     @ApiModelProperty(value = "平台名称")
     @Transient
