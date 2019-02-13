@@ -55,13 +55,13 @@
 	INSERT INTO `saasops_manage`.`t_gm_apiprefix` ( `apiId`, `prefix`, `siteId`, `available`, `createUser`, `createTime`, `modifyUser`, `modifyTime`) VALUES ( '50019', 'model', '84', '1', '', '2018-03-23 09:35:35', '', '2018-03-23 09:35:35');
 	INSERT INTO `saasops_manage`.`t_gm_apiprefix` ( `apiId`, `prefix`, `siteId`, `available`, `createUser`, `createTime`, `modifyUser`, `modifyTime`) VALUES ( '20012', 'model', '84', '1', '', '2018-03-23 09:36:14', '', '2018-03-23 09:36:14');
 	-->
-	<insert id="insertApiPrefix" parameterType="com.invech.platform.dsfcenterdata.utils.entity.TGmApiprefix">
+	<insert id="insertApiPrefix" parameterType="com.invech.platform.dsfcenterdata.utils.entity.TGmApiPrefix">
 	INSERT INTO t_gm_apiprefix (`apiId`, `prefix`, `siteId`, `available`, `createUser`, `createTime`, `modifyUser`, `modifyTime`)
 	VALUES
 	( #{apiId}, #{prefix}, #{siteId}, '1', #{createUser}, #{createTime}, #{modifyUser}, #{modifyTime});
 	</insert>
 
-	<select id="selectApiPrefixByModel" resultType="com.invech.platform.dsfcenterdata.utils.entity.TGmApiprefix">
+	<select id="selectApiPrefixByModel" resultType="com.invech.platform.dsfcenterdata.utils.entity.TGmApiPrefix">
 		select * from t_gm_apiprefix where siteId = 84 ;
 	</select>
 </mapper>

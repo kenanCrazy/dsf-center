@@ -5,7 +5,7 @@ import com.invech.platform.dsfcenterdao.dao.SysMapper;
 import com.invech.platform.dsfcenterdao.mapper.TSiteMapper;
 import com.invech.platform.dsfcenterdao.mapper.TSiteUrlMapper;
 import com.invech.platform.dsfcenterdata.utils.entity.TSite;
-import com.invech.platform.dsfcenterdata.utils.entity.TGmApiprefix;
+import com.invech.platform.dsfcenterdata.utils.entity.TGmApiPrefix;
 import com.invech.platform.dsfcenterdata.utils.entity.TSiteurl;
 import com.invech.platform.dsfcenterdata.utils.entity.TSchema;
 import com.invech.platform.dsfcenterdata.utils.response.R;
@@ -145,10 +145,10 @@ public class TCpSiteService extends BaseService<TSiteMapper, TSite> {
     tSiteurl.setSiteId(tSite.getId());
     tSiteUrlMapper.insertUseGeneratedKeys(tSiteurl);
     /*插入apiPrefix 和siteCode 的对应关系*/
-    List<TGmApiprefix> models = sysMapper.selectApiPrefixByModel();
+    List<TGmApiPrefix> models = sysMapper.selectApiPrefixByModel();
     models.forEach(model -> {
       sysMapper.insertApiPrefix(
-          new TGmApiprefix(model.getApiId(), model.getPrefix().replace("model", siteCode),
+          new TGmApiPrefix(model.getApiId(), model.getPrefix().replace("model", siteCode),
               tSite.getId(), new Byte("1"), userName, userName));
     });
     this.schemaName.put(tSite.getSchemaName(), tSite.getSiteCode());

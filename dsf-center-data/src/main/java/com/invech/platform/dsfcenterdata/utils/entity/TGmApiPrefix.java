@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class TGmApiprefix {
+public class TGmApiPrefix {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -40,7 +40,7 @@ public class TGmApiprefix {
     private String modifyTime;
 
 
-    public TGmApiprefix(String apiId, String prefix, Integer siteId, Byte available, String createUser, String modifyUser) {
+    public TGmApiPrefix(String apiId, String prefix, Integer siteId, Byte available, String createUser, String modifyUser) {
         this.apiId = apiId;
         this.prefix = prefix;
         this.siteId = siteId;

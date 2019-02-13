@@ -4,7 +4,7 @@ package com.invech.platform.dsfcenterdao.dao;
 import com.invech.platform.dsfcenterdata.utils.entity.TSysConfig;
 import com.invech.platform.dsfcenterdata.utils.entity.TSite;
 import com.invech.platform.dsfcenterdata.utils.entity.TGmApi;
-import com.invech.platform.dsfcenterdata.utils.entity.TGmApiprefix;
+import com.invech.platform.dsfcenterdata.utils.entity.TGmApiPrefix;
 import com.invech.platform.dsfcenterdata.utils.entity.TSchema;
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
@@ -30,7 +30,7 @@ public interface SysMapper {
   int updateTschemaSiteCode(TSchema TSchema);
 
 
-  int insertApiPrefix(TGmApiprefix tGmApiprefix);
+  int insertApiPrefix(TGmApiPrefix tGmApiPrefix);
 
-  List<TGmApiprefix> selectApiPrefixByModel();
+  List<TGmApiPrefix> selectApiPrefixByModel();
 }
