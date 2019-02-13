@@ -14,7 +14,7 @@ import lombok.Setter;
 @Getter
 @ApiModel(value = "站点url信息表", description = "站点url信息表")
 @Table(name = "t_siteurl")
-public class TcpSiteurl implements Serializable {
+public class TSiteurl implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

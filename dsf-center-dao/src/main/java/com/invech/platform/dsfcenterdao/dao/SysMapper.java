@@ -1,11 +1,11 @@
 package com.invech.platform.dsfcenterdao.dao;
 
 
-import com.invech.platform.dsfcenterdata.utils.entity.SsysConfig;
-import com.invech.platform.dsfcenterdata.utils.entity.TCpSite;
+import com.invech.platform.dsfcenterdata.utils.entity.TSysConfig;
+import com.invech.platform.dsfcenterdata.utils.entity.TSite;
 import com.invech.platform.dsfcenterdata.utils.entity.TGmApi;
 import com.invech.platform.dsfcenterdata.utils.entity.TGmApiprefix;
-import com.invech.platform.dsfcenterdata.utils.entity.Tschema;
+import com.invech.platform.dsfcenterdata.utils.entity.TSchema;
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -13,21 +13,21 @@ import org.apache.ibatis.annotations.Param;
 @Mapper
 public interface SysMapper {
 
-  TCpSite findCpSiteOne(@Param("siteUrl") String siteUrl);
+  TSite findCpSiteOne(@Param("siteUrl") String siteUrl);
 
-  List<TCpSite> findCpSite();
+  List<TSite> findCpSite();
 
   TGmApi findGmApiOne(@Param("depotId") Integer depotId, @Param("siteCode") String siteCode);
 
   Integer updateSchema(@Param("id") Integer id, @Param("siteCode") String siteCode);
 
-  Tschema selectTschemaOne();
+  TSchema selectTschemaOne();
 
-  List<SsysConfig> listSysConfig(@Param("groups") String groups);
+  List<TSysConfig> listSysConfig(@Param("groups") String groups);
 
   String getCpSiteCode(@Param("siteCode") String siteCode);
 
-  int updateTschemaSiteCode(Tschema tschema);
+  int updateTschemaSiteCode(TSchema TSchema);
 
 
   int insertApiPrefix(TGmApiprefix tGmApiprefix);

@@ -5,6 +5,7 @@ import io.swagger.annotations.ApiModelProperty;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.persistence.Transient;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,7 +13,8 @@ import lombok.Setter;
 @Setter
 @Getter
 @ApiModel(value = "基础信息设置表", description = "")
-public class SsysConfig {
+@Table(name = "t_sys_config")
+public class TSysConfig {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@ApiModelProperty(value = "id")

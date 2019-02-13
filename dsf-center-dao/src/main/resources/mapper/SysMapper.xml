@@ -4,7 +4,7 @@
 <mapper
 	namespace="com.invech.platform.dsfcenterdao.dao.SysMapper">
 	<select id="findCpSiteOne"
-		resultType="com.invech.platform.dsfcenterdata.utils.entity.TCpSite">
+		resultType="com.invech.platform.dsfcenterdata.utils.entity.TSite">
 		select t1.*,t2.siteUrl
 		from t_cp_site t1,t_cp_siteurl t2
 		where t1.id=t2.siteId and t1.available=1 and
@@ -12,7 +12,7 @@
 		CONCAT('%',#{siteUrl},'%') limit 1
 	</select>
 	<select id="findCpSite"
-		resultType="com.invech.platform.dsfcenterdata.utils.entity.TCpSite">
+		resultType="com.invech.platform.dsfcenterdata.utils.entity.TSite">
 		select t1.*,t2.siteUrl
 		from t_cp_site t1,t_cp_siteurl t2
 		where t1.id=t2.siteId and t1.available=1
@@ -31,12 +31,12 @@
 		where id=#{id} and isUsed=0
 	</update>
 	<select id="selectTschemaOne"
-		resultType="com.invech.platform.dsfcenterdata.utils.entity.Tschema">
+		resultType="com.invech.platform.dsfcenterdata.utils.entity.TSchema">
 		select * from t_schema where isUsed=0 order by id asc limit
 		1
 	</select>
 	<select id="listSysConfig"
-		resultType="com.invech.platform.dsfcenterdata.utils.entity.SsysConfig">
+		resultType="com.invech.platform.dsfcenterdata.utils.entity.TSysConfig">
 		select * from s_sys_config where groups=#{groups};
 	</select>
 
@@ -44,7 +44,7 @@
 		select a.siteCode from t_cp_site a where a.schemaName=#{siteCode}
 	</select>
 
-	<update id="updateTschemaSiteCode" parameterType="com.invech.platform.dsfcenterdata.utils.entity.Tschema">
+	<update id="updateTschemaSiteCode" parameterType="com.invech.platform.dsfcenterdata.utils.entity.TSchema">
 		update t_schema set siteCode = #{siteCode} , isUsed =  #{isUsed} where id = #{id} and isUsed = 0
 	</update>
 	<!--

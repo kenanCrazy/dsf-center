@@ -1,37 +1,37 @@
 package com.invech.platform.dsfcenterdao.service;
 
 import com.invech.platform.dsfcenterdao.dao.SysMapper;
-import com.invech.platform.dsfcenterdao.mapper.TschemaMapper;
-import com.invech.platform.dsfcenterdata.utils.entity.Tschema;
+import com.invech.platform.dsfcenterdao.mapper.TSchemaMapper;
+import com.invech.platform.dsfcenterdata.utils.entity.TSchema;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class TschemaService  extends BaseService<TschemaMapper, Tschema> {
+public class TschemaService  extends BaseService<TSchemaMapper, TSchema> {
 
     @Autowired
-    TschemaMapper tschemaMapper;
+    TSchemaMapper TSchemaMapper;
 
     @Autowired
     SysMapper sysMapper;
 
-    public void insertTschema(Tschema tschema){
-        super.save(tschema);
+    public void insertTschema(TSchema TSchema){
+        super.save(TSchema);
     }
 
-    public void updateTschema(Tschema tschema){
-        super.update(tschema);
+    public void updateTschema(TSchema TSchema){
+        super.update(TSchema);
     }
 
-    public Tschema selectOne(Tschema tschema){
-        return tschemaMapper.selectOne(tschema);
+    public TSchema selectOne(TSchema TSchema){
+        return TSchemaMapper.selectOne(TSchema);
     }
 
-    public int selectCount(Tschema tschema){
-        return super.selectCount(tschema);
+    public int selectCount(TSchema TSchema){
+        return super.selectCount(TSchema);
     }
 
-    public int updateTschemaSiteCode(Tschema tschema) {
-        return sysMapper.updateTschemaSiteCode(tschema);
+    public int updateTschemaSiteCode(TSchema TSchema) {
+        return sysMapper.updateTschemaSiteCode(TSchema);
     }
 }

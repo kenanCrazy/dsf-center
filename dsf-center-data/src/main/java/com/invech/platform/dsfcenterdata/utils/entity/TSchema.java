@@ -13,7 +13,7 @@ import lombok.Setter;
 @Getter
 @ApiModel(value = "站点信息", description = "站点信息")
 @Table(name = "t_schema")
-public class Tschema {
+public class TSchema {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @ApiModelProperty(value = "id")
