@@ -47,14 +47,7 @@
 	<update id="updateTschemaSiteCode" parameterType="com.invech.platform.dsfcenterdata.entity.TSchema">
 		update t_schema set site_code = #{siteCode} , is_used =  #{isUsed} where id = #{id} and is_used = 0
 	</update>
-	<!--
-	INSERT INTO `saasops_manage`.`t_gm_apiprefix` (`apiId`, `prefix`, `siteId`, `available`, `createUser`, `createTime`, `modifyUser`, `modifyTime`) VALUES ( '10061', 'model', '84', '1', '', '2018-03-23 09:35:28', '', '2018-03-23 09:35:28');
-	INSERT INTO `saasops_manage`.`t_gm_apiprefix` ( `apiId`, `prefix`, `siteId`, `available`, `createUser`, `createTime`, `modifyUser`, `modifyTime`) VALUES ( '110007', 'model', '84', '1', NULL, '2018-03-23 09:35:31', NULL, '2018-03-23 09:35:31');
-	INSERT INTO `saasops_manage`.`t_gm_apiprefix` ( `apiId`, `prefix`, `siteId`, `available`, `createUser`, `createTime`, `modifyUser`, `modifyTime`) VALUES ( '140027', 'AF8model', '84', '1', NULL, '2018-04-04 17:50:31', NULL, '2018-04-04 17:50:31');
-	INSERT INTO `saasops_manage`.`t_gm_apiprefix` (`apiId`, `prefix`, `siteId`, `available`, `createUser`, `createTime`, `modifyUser`, `modifyTime`) VALUES ( '120004', 'model', '84', '1', NULL, '2018-03-23 09:35:34', NULL, '2018-03-23 09:35:34');
-	INSERT INTO `saasops_manage`.`t_gm_apiprefix` ( `apiId`, `prefix`, `siteId`, `available`, `createUser`, `createTime`, `modifyUser`, `modifyTime`) VALUES ( '50019', 'model', '84', '1', '', '2018-03-23 09:35:35', '', '2018-03-23 09:35:35');
-	INSERT INTO `saasops_manage`.`t_gm_apiprefix` ( `apiId`, `prefix`, `siteId`, `available`, `createUser`, `createTime`, `modifyUser`, `modifyTime`) VALUES ( '20012', 'model', '84', '1', '', '2018-03-23 09:36:14', '', '2018-03-23 09:36:14');
-	-->
+
 	<insert id="insertApiPrefix" parameterType="com.invech.platform.dsfcenterdata.entity.TGmApiPrefix">
 	INSERT INTO t_gm_apiprefix (`api_id`, `prefix`, `site_id`, `available`, `create_user`, `create_time`, `modify_user`, `modify_time`)
 	VALUES
