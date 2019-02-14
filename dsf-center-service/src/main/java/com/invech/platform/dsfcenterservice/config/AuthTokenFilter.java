@@ -10,10 +10,12 @@ import com.invech.platform.dsfcenterdata.constants.ApiConstants;
 import com.invech.platform.dsfcenterdata.entity.TSite;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 
 @Slf4j
+@Component
 public class AuthTokenFilter extends HandlerInterceptorAdapter {
 
     @Autowired
@@ -35,6 +37,6 @@ public class AuthTokenFilter extends HandlerInterceptorAdapter {
       }
       log.info(siteCode);
       // TODO 此处增加用户是否登录的判断,用户登录数据要注入到controller里面
-    return false;
+    return true;
   }
 }

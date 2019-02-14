@@ -70,6 +70,6 @@ public class TSite implements Serializable {
 	private String siteUrl;
 
 	@ApiModelProperty(value="0：包网，1：API")
-	private Byte isapi;
+	private Byte isApi;
 
 }

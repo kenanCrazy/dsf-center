@@ -136,8 +136,8 @@ public class TSiteService extends BaseService<TSiteMapper, TSite> {
     TSite tSite = new TSite();
     tSite.setSiteCode(siteCode);
     tSite.setSchemaName(TSchema.getSimpleName());
-    tSite.setIsapi(new Byte("0"));
-    tSite.setAvailable(new Byte("1"));
+    tSite.setIsApi(Byte.valueOf("0"));
+    tSite.setAvailable(Byte.valueOf("1"));
     String currentDate = DateUtil.getCurrentDate(DateUtil.FORMAT_18_DATE_TIME);
     tSite.setCreateTime(currentDate);
     tSite.setMemo(siteName);

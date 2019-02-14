@@ -31,3 +31,7 @@ log:
     mylog: debug
   file: ./log/dsf-center-service.log
   maxsize: 60MB
+
+server:
+  servlet:
+    context-path: /dsf-center

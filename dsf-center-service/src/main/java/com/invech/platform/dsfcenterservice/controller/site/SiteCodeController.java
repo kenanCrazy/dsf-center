@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@RequestMapping("/dsf-center/site")
+@RequestMapping("/api/site")
 @Api(value = "SiteCode", description = "站点有关")
 public class SiteCodeController {
 

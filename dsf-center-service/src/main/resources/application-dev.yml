@@ -59,14 +59,21 @@ eureka:
 
 mybatis:
   mapperLocations: classpath:mapper/**/*.xml
-  configLocation: classpath:mybatis.xml
+#  configLocation: classpath:mybatis.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+#    interceptors:
+#      - com.invech.platform.dsfcenterdao.config.MybatisInterceptor
 
 mapper:
   mappers:
-    - com.invech.platform.dsfcenterdao.config.MybatisInterceptor
-  style: normal
+    - com.invech.platform.dsfcenterdao.config.MybatisAutoMapper
+#驼峰转下划线
+  style: camelhumpandlowercase
   not-empty: false
   identity: MYSQL
+
 
 
 #  swagger 开关 http://localhost:8089/swagger-ui.html
