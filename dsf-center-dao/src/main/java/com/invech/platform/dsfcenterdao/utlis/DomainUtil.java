@@ -13,6 +13,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -150,8 +151,9 @@ public class DomainUtil {
 
 
 	public static String getSchemaName(){
-		if(RequestContextHolder.getRequestAttributes() != null) {
-			HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+		RequestAttributes attr = RequestContextHolder.getRequestAttributes();
+		if(attr != null) {
+			HttpServletRequest request = ((ServletRequestAttributes) attr).getRequest();
 			if (request != null) {
 				//注释语句从这里开始
 				String siteCode = AESUtil.decrypt(request.getHeader(ApiConstants.SITE_SECURETY_KEY));

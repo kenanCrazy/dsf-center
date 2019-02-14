@@ -12,7 +12,7 @@ CREATE TABLE `t_site` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `site_code` varchar(12) NOT NULL,
   `site_name` varchar(40) DEFAULT NULL,
-  `schema_name` varchar(12) DEFAULT NULL,
+  `schema_name` varchar(25) DEFAULT NULL,
   `is_api` tinyint(4) NOT NULL DEFAULT '1',
   `currency` varchar(4) NOT NULL DEFAULT 'RMB',
   `company_id` int(11) DEFAULT NULL,
@@ -162,7 +162,7 @@ CREATE TABLE `t_gm_game` (
 
 CREATE TABLE `t_schema` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `schema_name` varchar(12) NOT NULL,
+  `schema_name` varchar(25) NOT NULL,
   `simple_name` varchar(4) DEFAULT NULL,
   `is_used` tinyint(4) NOT NULL DEFAULT '0',
   `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -195,7 +195,7 @@ CREATE TABLE `transfer_log` (
   KEY `combo1` (`create_time`,`type`,`dsf_player_id`) USING BTREE,
   KEY `combo2` (`create_time`,`game_platform`,`dsf_player_id`,`type`) USING BTREE,
   KEY `combo5` (`create_time`,`site_code`),
-  KEY `combo3` (`create_time`),
+  KEY `combo4` (`create_time`),
   KEY `combo3` (`api_name`),
   KEY `combo6` (`game_platform`,`dsf_player_id`,`create_time`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
