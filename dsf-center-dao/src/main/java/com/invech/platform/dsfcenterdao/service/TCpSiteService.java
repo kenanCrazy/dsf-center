@@ -4,6 +4,7 @@ package com.invech.platform.dsfcenterdao.service;
 import com.invech.platform.dsfcenterdao.dao.SysMapper;
 import com.invech.platform.dsfcenterdao.mapper.TSiteMapper;
 import com.invech.platform.dsfcenterdao.mapper.TSiteUrlMapper;
+import com.invech.platform.dsfcenterdata.constants.ApiConstants;
 import com.invech.platform.dsfcenterdata.entity.TSite;
 import com.invech.platform.dsfcenterdata.entity.TGmApiPrefix;
 import com.invech.platform.dsfcenterdata.entity.TSiteurl;
@@ -15,6 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
@@ -37,8 +39,7 @@ public class TCpSiteService extends BaseService<TSiteMapper, TSite> {
   SysMapper sysMapper;
 
 
-  //@Cacheable(cacheNames = ApiConstants.REDIS_GAME_SITECODE_CACHE_KEY, key = "#siteCode")
-  // @CacheDuration(duration = 6)
+  @Cacheable(cacheNames = ApiConstants.REDIS_GAME_SITECODE_CACHE_KEY, key = "#siteCode")
   public TSite queryPreOneCond(String siteCode) {
     TSite cpSite = new TSite();
     cpSite.setSiteCode(siteCode);
@@ -61,7 +62,7 @@ public class TCpSiteService extends BaseService<TSiteMapper, TSite> {
 
   }
 
-  //	@Cacheable(cacheNames = ApiConstants.SITE_CODE, key = "#SchemaName")
+  @Cacheable(cacheNames = ApiConstants.SITE_CODE, key = "#SchemaName")
   public String getSiteCode(String SchemaName) {
     TSite cpSite = new TSite();
     cpSite.setSchemaName(SchemaName);
@@ -69,7 +70,7 @@ public class TCpSiteService extends BaseService<TSiteMapper, TSite> {
     return cpSite.getSiteCode();
   }
 
-  //	@Cacheable(cacheNames = ApiConstants.SCHEMA_NAME, key = "#siteCode")
+  @Cacheable(cacheNames = ApiConstants.SCHEMA_NAME, key = "#siteCode")
   public String getSchemaName(String siteCode) {
     TSite cpSite = new TSite();
     cpSite.setSiteCode(siteCode);
