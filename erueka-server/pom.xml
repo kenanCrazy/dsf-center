@@ -13,6 +13,7 @@
     <version>1.0-SNAPSHOT</version>
     <name>erueka-server</name>
     <description>Eureka服务器</description>
+    <packaging>jar</packaging>
 
     <properties>
         <java.version>1.8</java.version>

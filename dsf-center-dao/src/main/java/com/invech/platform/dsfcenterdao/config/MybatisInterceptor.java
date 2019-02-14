@@ -75,7 +75,7 @@ public class MybatisInterceptor implements Interceptor {
             schema = ThreadLocalCache.SiteCodeThreadLocal.get().getSiteCode();
         }*/
         //获取站点前缀
-        MetaObjectHandler.setValue("delegate.boundSql.sql", "/*!mycat:schema = "+preSchema+schema.toLowerCase()+" */"+sql);
+        // MetaObjectHandler.setValue("delegate.boundSql.sql", "/*!mycat:schema = "+preSchema+schema.toLowerCase()+" */"+sql);
         return invocation.proceed();
     }
 

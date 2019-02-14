@@ -77,11 +77,11 @@ public class AESUtil {
 
 
 
-    public static void main(String[] args) throws Exception{
-       // String content =AESUtil.encrypt("test");
-        //System.out.println(content);
-        System.out.println(AESUtil.decrypt("B96390CDE4496DF913118AF5A5E4BD328DB33185CF7A6F7237FF2A865A57A03B1521785338526"));
-    }
+//    public static void main(String[] args) throws Exception{
+//        String content =AESUtil.encrypt("test");
+//        System.out.println(content);
+//        System.out.println(AESUtil.decrypt("B96390CDE4496DF913118AF5A5E4BD328DB33185CF7A6F7237FF2A865A57A03B1521785338526"));
+//    }
     /**
      * 解密
      *

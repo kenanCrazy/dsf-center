@@ -19,7 +19,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new AuthTokenFilter()).addPathPatterns("/dsf-center/**").excludePathPatterns("/dsf-center/site/getSiteCode");
+        registry.addInterceptor(new AuthTokenFilter()).addPathPatterns("/dsf-center/**").excludePathPatterns("/dsf-center/site/getSchemaName");
     }
 
 //    @Override

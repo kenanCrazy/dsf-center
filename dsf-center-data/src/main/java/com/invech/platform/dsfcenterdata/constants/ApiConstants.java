@@ -74,21 +74,12 @@ public class ApiConstants {
 	public static final String REIDS_MAIL_SET_KEY = "mailsetCache";
 	public static final String REIDS_SMS_SET_KEY = "SMSsetCache";
 	public static final String REIDS_STATION_SET_KEY = "StationsetCache";
-	public static final String REIDS_CAPTCHA_KEY = "retrvRegCaptchaCache";// 用户注册验证码,找回密码
-	public static final String REIDS_LOGIN_CAPTCHA_KEY = "loginCaptchaCache";// 用户登陆验证码保存
-	public static final String REIDS_VFYMAILORMOB_CODE_KEY = "vfyMailOrMobCodeCache";// 用户验证邮箱或手机CODE
 
 	public static final String REIDS_LOGIN_PT2TOKEN_KEY = "loginPt2TokenCache";// pt代理账号用户登入token
 
 	public static final String REIDS_LOGIN_NTTOKEN_KEY = "loginNtTokenCache";// Nt代理账号用户登入token
 
 	public static final String REIDS_LOGIN_PNGTOKEN_KEY = "loginPngTokenCache";// PNG会员账号用户登入token
-
-	public final static String REIDS_KAPTCHA_REG_CACHE = "kaptchaRegCache:";// 注册
-
-	public static final String REIDS_KAPTCHA_LOGIN_CACHE = "kaptchaLoginCache:";// 登陆
-
-	public static final String REIDS_KAPTCHA_RETRVPWD_CACHE = "kaptchaRetrvPwdCache:";// 找回密码
 
 	public static final String  REDIS_PROXY_CATCH="redisProxyCache";//代理缓存
 

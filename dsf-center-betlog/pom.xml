@@ -12,6 +12,7 @@
     <artifactId>dsf-center-betlog</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>dsf-center-betlog</name>
+    <packaging>jar</packaging>
     <description>Demo project for Spring Boot</description>
 
     <properties>

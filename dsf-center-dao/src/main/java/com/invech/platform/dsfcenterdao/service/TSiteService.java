@@ -25,7 +25,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 @Service
-public class TCpSiteService extends BaseService<TSiteMapper, TSite> {
+public class TSiteService extends BaseService<TSiteMapper, TSite> {
 
   public static Map<String, String> schemaName;
 
@@ -38,6 +38,11 @@ public class TCpSiteService extends BaseService<TSiteMapper, TSite> {
   @Autowired
   SysMapper sysMapper;
 
+
+  @Cacheable(cacheNames = ApiConstants.SCHEMA_NAME, key = "#domain")
+  public TSite querySiteByDomain(String domain){
+    return sysMapper.findSiteOne(domain);
+  }
 
   @Cacheable(cacheNames = ApiConstants.REDIS_GAME_SITECODE_CACHE_KEY, key = "#siteCode")
   public TSite queryPreOneCond(String siteCode) {

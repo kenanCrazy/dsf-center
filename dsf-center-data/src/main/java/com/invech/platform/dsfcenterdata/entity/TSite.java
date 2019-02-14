@@ -8,13 +8,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Setter
 @Getter
 @ApiModel(value = "站点信息", description = "站点信息")
 @Table(name = "t_site")
+@AllArgsConstructor
+@NoArgsConstructor
 public class TSite implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id

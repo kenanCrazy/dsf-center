@@ -24,6 +24,7 @@ eureka:
 
 logging:
   config: classpath:logback-admin.xml
+
 log:
   level:
     root: info

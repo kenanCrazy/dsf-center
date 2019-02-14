@@ -421,10 +421,10 @@ public class DateUtil {
 		}
 		return null;
 	}
-    public static void main(String args[])
-    {
-    	System.out.println(getUTCTimeStr());
-    }
+//    public static void main(String args[])
+//    {
+//    	System.out.println(getUTCTimeStr());
+//    }
     
 	public static int compareDate(String date1, String date2) {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");

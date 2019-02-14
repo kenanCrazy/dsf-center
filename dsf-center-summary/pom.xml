@@ -13,6 +13,7 @@
     <version>1.0-SNAPSHOT</version>
     <name>dsf-center-summary</name>
     <description>汇总，调度</description>
+    <packaging>jar</packaging>
 
     <properties>
         <java.version>1.8</java.version>

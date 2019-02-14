@@ -1,7 +1,7 @@
 package com.invech.platform.dsfcenterdata.entity;
 
 
-import com.invech.platform.dsfcenterdata.utils.utils.DateUtil;
+import com.invech.platform.dsfcenterdata.utils.DateUtil;
 import io.swagger.annotations.ApiModelProperty;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
