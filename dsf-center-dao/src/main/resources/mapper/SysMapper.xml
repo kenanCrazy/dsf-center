@@ -5,34 +5,34 @@
 	namespace="com.invech.platform.dsfcenterdao.dao.SysMapper">
 	<select id="findSiteOne"
 		resultType="com.invech.platform.dsfcenterdata.entity.TSite">
-		select t1.*,t2.siteUrl
-		from t_cp_site t1,t_cp_siteurl t2
-		where t1.id=t2.siteId and t1.available=1 and
-		t2.siteUrl like
+		select t1.*,t2.site_url
+		from t_site t1,t_site_url t2
+		where t1.id=t2.site_id and t1.available=1 and
+		t2.site_url like
 		CONCAT('%',#{siteUrl},'%') limit 1
 	</select>
 	<select id="findSite"
 		resultType="com.invech.platform.dsfcenterdata.entity.TSite">
-		select t1.*,t2.siteUrl
-		from t_cp_site t1,t_cp_siteurl t2
-		where t1.id=t2.siteId and t1.available=1
+		select t1.*,t2.site_url
+		from t_site t1,t_site_url t2
+		where t1.id=t2.site_id and t1.available=1
 	</select>
 	<select id="findGmApiOne"
 		resultType="com.invech.platform.dsfcenterdata.entity.TGmApi">
-		select t1.siteCode,t2.prefix,t3.* from t_cp_site
-		t1,t_gm_apiprefix
-		t2,t_gm_api t3,t_gm_depot t4 where t1.id=t2.siteId and
-		t2.apiId=t3.id and t3.depotId=t4.id and t4.available=1
-		and t1.siteCode=#{siteCode} and t3.depotId=#{depotId}
+		select t1.site_code,t2.prefix,t3.* from t_site
+		t1,t_gm_api_prefix
+		t2,t_gm_api t3,t_gm_depot t4 where t1.id=t2.site_id and
+		t2.api_id=t3.id and t3.depot_id=t4.id and t4.available=1
+		and t1.site_code=#{siteCode} and t3.depot_id=#{depotId}
 		limit 1
 	</select>
 	<update id="updateSchema">
-		update t_schema set siteCode=#{siteCode} ,isUsed=1
-		where id=#{id} and isUsed=0
+		update t_schema set site_code=#{siteCode} ,is_used=1
+		where id=#{id} and is_used=0
 	</update>
 	<select id="selectTschemaOne"
 		resultType="com.invech.platform.dsfcenterdata.entity.TSchema">
-		select * from t_schema where isUsed=0 order by id asc limit
+		select * from t_schema where is_used=0 order by id asc limit
 		1
 	</select>
 	<select id="listSysConfig"
@@ -41,11 +41,11 @@
 	</select>
 
 	<select id="getSiteCode" resultType="java.lang.String">
-		select a.siteCode from t_cp_site a where a.schemaName=#{siteCode}
+		select a.site_code from t_site a where a.schema_name=#{siteCode}
 	</select>
 
 	<update id="updateTschemaSiteCode" parameterType="com.invech.platform.dsfcenterdata.entity.TSchema">
-		update t_schema set siteCode = #{siteCode} , isUsed =  #{isUsed} where id = #{id} and isUsed = 0
+		update t_schema set site_code = #{siteCode} , is_used =  #{isUsed} where id = #{id} and is_used = 0
 	</update>
 	<!--
 	INSERT INTO `saasops_manage`.`t_gm_apiprefix` (`apiId`, `prefix`, `siteId`, `available`, `createUser`, `createTime`, `modifyUser`, `modifyTime`) VALUES ( '10061', 'model', '84', '1', '', '2018-03-23 09:35:28', '', '2018-03-23 09:35:28');
@@ -56,12 +56,12 @@
 	INSERT INTO `saasops_manage`.`t_gm_apiprefix` ( `apiId`, `prefix`, `siteId`, `available`, `createUser`, `createTime`, `modifyUser`, `modifyTime`) VALUES ( '20012', 'model', '84', '1', '', '2018-03-23 09:36:14', '', '2018-03-23 09:36:14');
 	-->
 	<insert id="insertApiPrefix" parameterType="com.invech.platform.dsfcenterdata.entity.TGmApiPrefix">
-	INSERT INTO t_gm_apiprefix (`apiId`, `prefix`, `siteId`, `available`, `createUser`, `createTime`, `modifyUser`, `modifyTime`)
+	INSERT INTO t_gm_apiprefix (`api_id`, `prefix`, `site_id`, `available`, `create_user`, `create_time`, `modify_user`, `modify_time`)
 	VALUES
 	( #{apiId}, #{prefix}, #{siteId}, '1', #{createUser}, #{createTime}, #{modifyUser}, #{modifyTime});
 	</insert>
 
 	<select id="selectApiPrefixByModel" resultType="com.invech.platform.dsfcenterdata.entity.TGmApiPrefix">
-		select * from t_gm_apiprefix where siteId = 84 ;
+		select * from t_gm_apiprefix where site_id = 1 ;
 	</select>
 </mapper>

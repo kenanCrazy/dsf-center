@@ -2,6 +2,7 @@ package com.invech.platform.dsfcenterservice.controller.site;
 
 import com.invech.platform.dsfcenterdao.service.TSiteService;
 import com.invech.platform.dsfcenterdao.utlis.DomainUtil;
+import com.invech.platform.dsfcenterdata.constants.ApiConstants;
 import com.invech.platform.dsfcenterdata.entity.TSite;
 import com.invech.platform.dsfcenterdata.utils.AESUtil;
 import com.invech.platform.dsfcenterdata.response.R;
@@ -24,19 +25,32 @@ public class SiteCodeController {
   @Autowired
   private TSiteService tSiteService;
 
-  @GetMapping("/getSchemaName")
+  @GetMapping("/getSchemaNameSecurityCode")
   @ApiOperation(value = "获取当前站点对应的数据库加密信息", notes = "获取当前站点对应的数据库加密信息")
-//  @ApiImplicitParams({@ApiImplicitParam(name = "token", value = "token头部，随便填数字", required = true, dataType = "Integer", paramType = "header") })
   @ResponseBody
-  public R getSchemaName(@RequestParam("webDomain") String webDomain){
+  public R getSchemaNameSecurityCode(@RequestParam("webDomain") String webDomain){
     // 域名对应多个站点,获取站点,再通过站点获取数据库前缀
     TSite site=tSiteService.querySiteByDomain(DomainUtil.getDomainForUrl(webDomain));
-    String schemaName = site.getSchemaName();
+    String siteName = site.getSiteName();
     try {
-      return R.ok().put("Site", AESUtil.encrypt(schemaName));
+      return R.ok().put(ApiConstants.SITE_SECURETY_KEY, AESUtil.encrypt(siteName));
     } catch (Exception e) {
       e.printStackTrace();
     }
     return R.ok();
   }
+
+
+  @GetMapping("/getSchemaName")
+  @ApiOperation(value = "获取当前站点对应的数据库加密信息的解密信息", notes = "获取当前站点对应的数据库加密信息的解密信息")
+  @ApiImplicitParams({@ApiImplicitParam(name = ApiConstants.SITE_SECURETY_KEY, value = "token头部，随便填数字", required = true, dataType = "Integer", paramType = "header") })
+  @ResponseBody
+  public R getSchemaName(){
+    // 域名对应多个站点,获取站点,再通过站点获取数据库前缀
+    String schemaName  = DomainUtil.getSchemaName();
+    return R.ok().put(schemaName);
+  }
+
+
+
 }

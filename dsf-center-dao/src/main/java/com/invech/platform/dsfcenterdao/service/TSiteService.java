@@ -27,7 +27,11 @@ import org.springframework.util.StringUtils;
 @Service
 public class TSiteService extends BaseService<TSiteMapper, TSite> {
 
-  public static Map<String, String> schemaName;
+  // siteCode : schemaName
+  public static Map<String, String> schemaName = new HashMap<>();
+
+  // schemaName : siteCode
+  public static Map<String, String> siteCode = new HashMap<>();
 
   @Autowired
   TSiteUrlMapper tSiteUrlMapper;
@@ -85,15 +89,16 @@ public class TSiteService extends BaseService<TSiteMapper, TSite> {
 
 
   @Bean
-  public Map<String, String> initSchemaName() {
+  public void initSchemaName() {
     List<TSite> tSites = sysMapper.findSite();
-    Map<String, String> schemaName = new HashMap<>();
+//    Map<String, String> schemaName = new HashMap<>();
+//    Map<String, String> siteCode = new HashMap<>();
     schemaName.clear();
+    siteCode.clear();
     for (TSite tSite : tSites) {
-      schemaName.put(tSite.getSchemaName(), tSite.getSiteCode());
+      schemaName.put(tSite.getSiteCode(), tSite.getSchemaName());
+      siteCode.put(tSite.getSchemaName(), tSite.getSiteCode());
     }
-    this.schemaName = schemaName;
-    return schemaName;
   }
 
 

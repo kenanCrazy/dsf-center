@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 
 public class ApiConstants {
 
+	public static final String SITE_SECURETY_KEY ="Site";
 	public static final BigDecimal DEAULT_ZERO_VALUE = new BigDecimal("0.00");
 	public static final String USER_TOKEN_SPLIT = "_";// 用户信息token分隔符
 

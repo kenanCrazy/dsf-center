@@ -27,7 +27,7 @@ CREATE TABLE `t_site` (
   `modify_time` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `company_user` varchar(32) DEFAULT NULL,
   PRIMARY KEY (`id`,`site_code`) USING BTREE,
-  UNIQUE KEY `t_cp_site_schema_uindex` (`schema_name`) USING BTREE
+  UNIQUE KEY `t_site_schema_uindex` (`schema_name`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 

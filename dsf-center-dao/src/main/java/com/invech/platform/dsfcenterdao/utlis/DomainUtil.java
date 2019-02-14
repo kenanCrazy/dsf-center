@@ -2,6 +2,7 @@ package com.invech.platform.dsfcenterdao.utlis;
 
 import com.alibaba.druid.util.StringUtils;
 import com.invech.platform.dsfcenterdao.service.TSiteService;
+import com.invech.platform.dsfcenterdata.constants.ApiConstants;
 import com.invech.platform.dsfcenterdata.utils.AESUtil;
 import java.math.BigDecimal;
 import java.net.InetAddress;
@@ -147,39 +148,32 @@ public class DomainUtil {
 		return genRandom(5,5);
 	}
 
-	public static String getSiteCode(){
-		if(RequestContextHolder.getRequestAttributes() != null) {
-			HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
-			if (request != null) {
-				//注释语句从这里开始
-				/*String ip = request.getRemoteAddr();
-				String schemaName=(String) request.getAttribute("schemaName");
-				if (schemaName==null&&(ip.equals("127.0.0.1") || ip.equals("192.168.5.30") || ip.equals("202.61.86.189"))) {
-					String stoken = request.getHeader("SToken");
-					if (StringUtils.isEmpty(stoken)) {
-						return "test";
-					}
-				}*/
-				//*********线上注释以上语句
-				String schemaName = AESUtil.decrypt(request.getHeader("SToken"));
-				if (StringUtils.isEmpty(schemaName)) {
-					log.info("无法获取SToken");
-					return  "test";
-				}
-				return TSiteService.schemaName.get(schemaName);
-
-			}
-		}
-		return null;
-	}
 
 	public static String getSchemaName(){
 		if(RequestContextHolder.getRequestAttributes() != null) {
 			HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
 			if (request != null) {
-				String schemaName = AESUtil.decrypt(request.getHeader("SToken"));
-				if(!StringUtils.isEmpty(TSiteService.schemaName.get(schemaName))){
-					return schemaName ;
+				//注释语句从这里开始
+				String siteCode = AESUtil.decrypt(request.getHeader(ApiConstants.SITE_SECURETY_KEY));
+				if (StringUtils.isEmpty(siteCode)) {
+					log.info("无法获取"+ApiConstants.SITE_SECURETY_KEY);
+					return  "test";
+				}
+				return TSiteService.schemaName.get(siteCode);
+			}
+		}
+		return null;
+	}
+
+	public static String getSiteCode(){
+		if(RequestContextHolder.getRequestAttributes() != null) {
+			HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+			if (request != null) {
+				String siteCode = AESUtil.decrypt(request.getHeader(ApiConstants.SITE_SECURETY_KEY));
+				if(!StringUtils.isEmpty(TSiteService.schemaName.get(siteCode))){
+					return siteCode ;
+				}else {
+					log.info("无法获取schemaName , siteCode = "+siteCode);
 				}
 			}
 		}
