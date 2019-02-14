@@ -6,8 +6,8 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.1.235:3306/dsf_center_rmi2?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
-    password: abcd1234
+    url: jdbc:mysql://127.0.0.1:3306/dsf_center_master?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    password: xuyun1225
     username: root
 #    username: ryan
     druid:
@@ -34,7 +34,18 @@ spring:
         wall:
           config:
             multi-statement-allow: true
-
+#redis conf
+  cache:
+    type: redis
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    lettuce:
+      pool:
+        max-active: 10
+        min-idle: 1
+        max-wait: 300
+    database: 10
 
 eureka:
   instance:
@@ -62,11 +73,3 @@ mapper:
 swagger:
   profile: dev
   scope: com.invech.platform.dsfcenterservice.controller
-
-logging:
-  level:
-    com:
-      dy:
-        springboot:
-          server:
-            mapper: debug

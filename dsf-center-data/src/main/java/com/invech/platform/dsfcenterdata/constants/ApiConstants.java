@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 public class ApiConstants {
 
 	public static final String SITE_SECURETY_KEY ="Site";
+
 	public static final BigDecimal DEAULT_ZERO_VALUE = new BigDecimal("0.00");
 	public static final String USER_TOKEN_SPLIT = "_";// 用户信息token分隔符
 
@@ -179,5 +180,10 @@ public class ApiConstants {
 		String HTTP="HTTP";
 		String DIRECT="DIRECT";
 		String SOCKS="SOCKS";
+	}
+
+	public interface SiteAvilable {
+		Byte AVILABLE = Byte.valueOf("1");
+		Byte NOT_AVILABLE = Byte.valueOf("0");
 	}
 }
