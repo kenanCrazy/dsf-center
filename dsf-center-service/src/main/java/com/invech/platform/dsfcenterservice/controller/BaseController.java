@@ -15,8 +15,9 @@ public abstract class BaseController {
   @Autowired
   PlayerService playerService;
 
-  User userDetails(){
-    HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+  User userDetails() {
+    HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder
+        .getRequestAttributes()).getRequest();
     String accessToken = request.getHeader(ApiConstants.PLAYER_LOGGIN_KEY);
     return playerService.userDetails(accessToken);
   }
