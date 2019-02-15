@@ -26,7 +26,7 @@ public class SiteCodeController {
   private TSiteService tSiteService;
 
   @GetMapping("/getSchemaNameSecurityCode")
-  @ApiOperation(value = "获取当前站点对应的数据库加密信息", notes = "获取当前站点对应的数据库加密信息")
+  @ApiOperation(tags = {"open"} , value = "获取当前站点对应的数据库加密信息", notes = "获取当前站点对应的数据库加密信息")
   @ResponseBody
   public R getSchemaNameSecurityCode(@RequestParam("webDomain") String webDomain){
     // 域名对应多个站点,获取站点,再通过站点获取数据库前缀
@@ -42,7 +42,7 @@ public class SiteCodeController {
 
 
   @GetMapping("/getSchemaName")
-  @ApiOperation(value = "获取当前站点对应的数据库加密信息的解密信息", notes = "获取当前站点对应的数据库加密信息的解密信息")
+  @ApiOperation(tags = {"site"} ,value = "获取当前站点对应的数据库加密信息的解密信息", notes = "获取当前站点对应的数据库加密信息的解密信息")
   @ApiImplicitParams({@ApiImplicitParam(name = ApiConstants.SITE_SECURETY_KEY, value = "token头部，随便填数字", required = true, dataType = "Integer", paramType = "header") })
   @ResponseBody
   public R getSchemaName(){

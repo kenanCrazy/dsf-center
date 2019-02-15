@@ -7,6 +7,9 @@ public class ApiConstants {
 
 	public static final String SITE_SECURETY_KEY ="Site";
 
+	//TODO 和account 同步
+	public static final String PLAYER_LOGGIN_KEY ="Access_Token";
+
 	public static final BigDecimal DEAULT_ZERO_VALUE = new BigDecimal("0.00");
 	public static final String USER_TOKEN_SPLIT = "_";// 用户信息token分隔符
 

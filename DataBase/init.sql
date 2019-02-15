@@ -1,3 +1,6 @@
+
+create database `dsf_center_master` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+
 CREATE TABLE `t_sys_config` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `groups` varchar(50) NOT NULL,
@@ -199,3 +202,10 @@ CREATE TABLE `transfer_log` (
   KEY `combo3` (`api_name`),
   KEY `combo6` (`game_platform`,`dsf_player_id`,`create_time`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+
+
+INSERT INTO `dsf_center_master`.`t_schema`(`id`, `schema_name`, `simple_name`, `is_used`, `create_time`, `modify_time`, `site_code`) VALUES (1, 'dsf_center_a001', 'a001', 1, '2019-02-15 17:24:35', '2019-02-15 17:24:35', 'test');
+
+INSERT INTO `dsf_center_master`.`t_site_url`(`id`, `site_id`, `site_code`, `site_url`) VALUES (1, 1, 'test', 'www.test.com');
+
+INSERT INTO `dsf_center_master`.`t_site`(`id`, `site_code`, `site_name`, `schema_name`, `is_api`, `currency`, `company_id`, `start_date`, `end_date`, `available`, `use_time`, `memo`, `create_user`, `create_time`, `modify_user`, `modify_time`, `company_user`) VALUES (1, 'test', 'test', 'a001', 1, 'RMB', NULL, '2019-02-15 17:23:36', '2019-02-15 17:23:36', 1, '2019-02-15 17:23:36', NULL, 'rmi', '2019-02-15 17:23:36', 'rmi', '2019-02-15 17:22:44', NULL);
