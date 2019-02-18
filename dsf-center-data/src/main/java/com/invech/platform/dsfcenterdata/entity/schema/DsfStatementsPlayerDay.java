@@ -14,14 +14,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-
+//TODO 此处按月分表,在MybatisInterceptor处理
 @Data
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @ApiModel(value = "DsfStatementsPlayerDay", description = "站点玩家按日汇总数据")
-
-//TODO 此处按月分表,在MybatisInterceptor处理
 @Table(name = "dsf_statements_day")
 public class DsfStatementsPlayerDay {
   @Id
