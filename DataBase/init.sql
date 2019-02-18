@@ -2,7 +2,7 @@
 create database `dsf_center_master` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 CREATE TABLE `t_sys_config` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `groups` varchar(50) NOT NULL,
   `keys` varchar(100) NOT NULL,
   `values` varchar(100) NOT NULL,
@@ -12,7 +12,7 @@ CREATE TABLE `t_sys_config` (
 
 
 CREATE TABLE `t_site` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `site_code` varchar(12) NOT NULL,
   `site_name` varchar(40) DEFAULT NULL,
   `schema_name` varchar(25) DEFAULT NULL,
@@ -35,7 +35,7 @@ CREATE TABLE `t_site` (
 
 
 CREATE TABLE `t_site_url` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `site_id` int(11) NOT NULL,
   `site_code` varchar(12) NOT NULL,
   `site_url` varchar(200) DEFAULT NULL,
@@ -44,7 +44,7 @@ CREATE TABLE `t_site_url` (
 
 
 CREATE TABLE `t_gm_api` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `depot_id` int(12) NOT NULL,
   `api_name` varchar(40) NOT NULL,
   `pc_url` varchar(100) NOT NULL,
@@ -70,7 +70,7 @@ CREATE TABLE `t_gm_api` (
 
 
 CREATE TABLE `t_gm_api_prefix` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `api_id` int(12) NOT NULL,
   `prefix` varchar(40) NOT NULL,
   `siteid` int(11) DEFAULT NULL,
@@ -84,7 +84,7 @@ CREATE TABLE `t_gm_api_prefix` (
 
 
 CREATE TABLE `t_gm_category` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `category_name` varchar(40) NOT NULL,
   `sort_id` int(11) NOT NULL,
   `available` tinyint(4) NOT NULL,
@@ -102,7 +102,7 @@ CREATE TABLE `t_gm_category` (
 
 
 CREATE TABLE `t_gm_depot` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `depot_name` varchar(40) NOT NULL,
   `depot_code` varchar(255) DEFAULT NULL,
   `available` tinyint(4) NOT NULL,
@@ -120,7 +120,7 @@ CREATE TABLE `t_gm_depot` (
 
 
 CREATE TABLE `t_gm_depot_category` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `depot_id` int(11) DEFAULT NULL,
   `category_id` int(11) DEFAULT NULL,
   `sort` int(11) DEFAULT '0',
@@ -129,7 +129,7 @@ CREATE TABLE `t_gm_depot_category` (
 
 
 CREATE TABLE `t_gm_game` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `category_id` int(11) NOT NULL,
   `depot_id` int(11) NOT NULL,
   `depot_name` varchar(45) DEFAULT NULL,
@@ -164,7 +164,7 @@ CREATE TABLE `t_gm_game` (
 
 
 CREATE TABLE `t_schema` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `schema_name` varchar(25) NOT NULL,
   `simple_name` varchar(4) DEFAULT NULL,
   `is_used` tinyint(4) NOT NULL DEFAULT '0',
@@ -213,7 +213,7 @@ INSERT INTO `dsf_center_master`.`t_site`(`id`, `site_code`, `site_name`, `schema
 
 
 CREATE TABLE `dsf_statements_player_day_{{month}}` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `brand` varchar(20) NOT NULL COMMENT '品牌',
   `game_platform` varchar(20) NOT NULL COMMENT '游戏平台',
   `task_times` int(4) unsigned zerofill DEFAULT NULL COMMENT '统计次数',
@@ -237,7 +237,7 @@ CREATE TABLE `dsf_statements_player_day_{{month}}` (
 
 
 CREATE TABLE `dsf_statements_month` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `site_code` varchar(20) NOT NULL COMMENT '站点',
   `game_platform` varchar(20) NOT NULL COMMENT '游戏平台',
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '开始时间',
