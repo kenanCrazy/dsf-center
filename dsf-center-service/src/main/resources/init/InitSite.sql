@@ -4,7 +4,7 @@ create database `dsf_center_{{siteCode}}` DEFAULT CHARACTER SET utf8 COLLATE utf
 use `dsf_center_{{siteCode}}`
 
 CREATE TABLE `t_sys_config` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `id`  int(11) unsigned NOT NULL AUTO_INCREMENT,
   `groups` varchar(50) NOT NULL,
   `keys` varchar(100) NOT NULL,
   `values` varchar(100) NOT NULL,
@@ -14,7 +14,7 @@ CREATE TABLE `t_sys_config` (
 
 
 CREATE TABLE `t_site` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `site_code` varchar(12) NOT NULL,
   `site_name` varchar(40) DEFAULT NULL,
   `schema_name` varchar(25) DEFAULT NULL,
@@ -37,7 +37,7 @@ CREATE TABLE `t_site` (
 
 
 CREATE TABLE `t_site_url` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `site_id` int(11) NOT NULL,
   `site_code` varchar(12) NOT NULL,
   `site_url` varchar(200) DEFAULT NULL,
@@ -46,7 +46,7 @@ CREATE TABLE `t_site_url` (
 
 
 CREATE TABLE `t_gm_api` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `depot_id` int(12) NOT NULL,
   `api_name` varchar(40) NOT NULL,
   `pc_url` varchar(100) NOT NULL,
@@ -72,7 +72,7 @@ CREATE TABLE `t_gm_api` (
 
 
 CREATE TABLE `t_gm_api_prefix` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `api_id` int(12) NOT NULL,
   `prefix` varchar(40) NOT NULL,
   `siteid` int(11) DEFAULT NULL,
@@ -86,7 +86,7 @@ CREATE TABLE `t_gm_api_prefix` (
 
 
 CREATE TABLE `t_gm_category` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `category_name` varchar(40) NOT NULL,
   `sort_id` int(11) NOT NULL,
   `available` tinyint(4) NOT NULL,
@@ -104,7 +104,7 @@ CREATE TABLE `t_gm_category` (
 
 
 CREATE TABLE `t_gm_depot` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `depot_name` varchar(40) NOT NULL,
   `depot_code` varchar(255) DEFAULT NULL,
   `available` tinyint(4) NOT NULL,
@@ -122,7 +122,7 @@ CREATE TABLE `t_gm_depot` (
 
 
 CREATE TABLE `t_gm_depot_category` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `depot_id` int(11) DEFAULT NULL,
   `category_id` int(11) DEFAULT NULL,
   `sort` int(11) DEFAULT '0',
@@ -131,7 +131,7 @@ CREATE TABLE `t_gm_depot_category` (
 
 
 CREATE TABLE `t_gm_game` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `category_id` int(11) NOT NULL,
   `depot_id` int(11) NOT NULL,
   `depot_name` varchar(45) DEFAULT NULL,
@@ -166,7 +166,7 @@ CREATE TABLE `t_gm_game` (
 
 
 CREATE TABLE `t_schema` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `schema_name` varchar(25) NOT NULL,
   `simple_name` varchar(4) DEFAULT NULL,
   `is_used` tinyint(4) NOT NULL DEFAULT '0',
@@ -208,7 +208,7 @@ CREATE TABLE `transfer_log` (
 
 
 CREATE TABLE `dsf_statements_player_day_{{month}}` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `account_id` bigint(20) NOT NULL,
   `site_code` varchar(20) NOT NULL COMMENT '站点',
   `game_platform` varchar(20) NOT NULL COMMENT '游戏平台',
@@ -227,11 +227,11 @@ CREATE TABLE `dsf_statements_player_day_{{month}}` (
   `total_member_exposure` decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT '玩家实际投注',
   PRIMARY KEY (`id`),
   UNIQUE KEY `player_day_uion` (`game_platform`,`day`,`player_id`,`category_name`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=3434 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
 CREATE TABLE `dsf_statements_month` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `site_code` varchar(20) NOT NULL COMMENT '站点',
   `game_platform` varchar(20) NOT NULL COMMENT '游戏平台',
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '开始时间',
@@ -242,7 +242,7 @@ CREATE TABLE `dsf_statements_month` (
   `player_result` decimal(10,2) NOT NULL COMMENT '输赢后结果',
   `mon` varchar(10) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `platform_frand` (`brand`,`game_platform`,`mon`)
-) ENGINE=InnoDB AUTO_INCREMENT=134 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+  UNIQUE KEY `platform_frand` (`site_code`,`game_platform`,`mon`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
