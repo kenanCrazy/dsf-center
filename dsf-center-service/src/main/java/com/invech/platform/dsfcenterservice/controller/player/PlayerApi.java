@@ -6,20 +6,26 @@ import com.invech.platform.dsfcenterdata.enums.TransferType;
 import com.invech.platform.dsfcenterdata.enums.WinLossStatus;
 import com.invech.platform.dsfcenterdata.response.R;
 import com.invech.platform.dsfcenterservice.controller.BaseController;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/player")
+@Api(value = "player", description = "客户端功能")
 public class PlayerApi extends BaseController{
 
   //TODO 转账考虑独立出来 ,方便看日志
 
+
+  @PutMapping("transfer")
   @ApiOperation(tags = {"player"}, value = "转账")
   @ApiImplicitParams({
       @ApiImplicitParam(name = ApiConstants.SITE_SECURETY_KEY, value = "Site 站点对应加密串", required = true, dataType = "Integer", paramType = "header") ,
@@ -28,6 +34,7 @@ public class PlayerApi extends BaseController{
     return R.ok();
   }
 
+  @PutMapping("allBalanceTransferToCenter")
   @ApiOperation(tags = {"player"}, value = "一键回归余额")
   @ApiImplicitParams({
       @ApiImplicitParam(name = ApiConstants.SITE_SECURETY_KEY, value = "Site 站点对应加密串", required = true, dataType = "Integer", paramType = "header") ,
@@ -36,6 +43,7 @@ public class PlayerApi extends BaseController{
     return R.ok();
   }
 
+  @GetMapping("startGame")
   @ApiOperation(tags = {"player"}, value = "开始游戏")
   @ApiImplicitParams({
       @ApiImplicitParam(name = ApiConstants.SITE_SECURETY_KEY, value = "Site 站点对应加密串", required = true, dataType = "Integer", paramType = "header") ,
@@ -44,6 +52,7 @@ public class PlayerApi extends BaseController{
     return R.ok();
   }
 
+  @GetMapping("getDsfBalance")
   @ApiOperation(tags = {"player"}, value = "获得第三方余额")
   @ApiImplicitParams({
       @ApiImplicitParam(name = ApiConstants.SITE_SECURETY_KEY, value = "Site 站点对应加密串", required = true, dataType = "Integer", paramType = "header") ,
@@ -52,6 +61,7 @@ public class PlayerApi extends BaseController{
     return R.ok();
   }
 
+  @GetMapping("getDsfAllBalance")
   @ApiOperation(tags = {"player"}, value = "获得所有第三方平台余额")
   @ApiImplicitParams({
       @ApiImplicitParam(name = ApiConstants.SITE_SECURETY_KEY, value = "Site 站点对应加密串", required = true, dataType = "Integer", paramType = "header") ,
@@ -60,6 +70,7 @@ public class PlayerApi extends BaseController{
     return R.ok();
   }
 
+  @GetMapping("getBetLog")
   @ApiOperation(tags = {"player"}, value = "下注记录")
   @ApiImplicitParams({
       @ApiImplicitParam(name = ApiConstants.SITE_SECURETY_KEY, value = "Site 站点对应加密串", required = true, dataType = "Integer", paramType = "header") ,
@@ -72,6 +83,7 @@ public class PlayerApi extends BaseController{
     return R.ok();
   }
 
+  @GetMapping("getPlayerStatement")
   @ApiOperation(tags = {"player"}, value = "下注记录")
   @ApiImplicitParams({
       @ApiImplicitParam(name = ApiConstants.SITE_SECURETY_KEY, value = "Site 站点对应加密串", required = true, dataType = "Integer", paramType = "header") ,
@@ -83,8 +95,9 @@ public class PlayerApi extends BaseController{
     return R.ok();
   }
 
+  @GetMapping("gameList")
   @ApiOperation(tags = {"player"}, value = "获取游戏列表")
-  public R gamesMap(@RequestParam("gamePlatform") GamePlatform gamePlatform){
+  public R gameList(@RequestParam("gamePlatform") GamePlatform gamePlatform){
     return R.ok();
   }
 }
