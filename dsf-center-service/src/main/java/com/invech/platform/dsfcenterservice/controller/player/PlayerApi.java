@@ -11,9 +11,11 @@ import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
+@RequestMapping("/player")
 public class PlayerApi extends BaseController{
 
   //TODO 转账考虑独立出来 ,方便看日志
@@ -78,6 +80,11 @@ public class PlayerApi extends BaseController{
       @RequestParam("startTime") String startTime,
       @RequestParam("endTime") String endTime,
       @RequestParam("category") String category){
+    return R.ok();
+  }
+
+  @ApiOperation(tags = {"player"}, value = "获取游戏列表")
+  public R gamesMap(@RequestParam("gamePlatform") GamePlatform gamePlatform){
     return R.ok();
   }
 }

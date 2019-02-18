@@ -1,14 +1,11 @@
-package com.invech.platform.dsfcenterservice.controller.admin;
+package com.invech.platform.dsfcenterservice.controller.superadmin;
 
 import com.invech.platform.dsfcenterservice.controller.BaseController;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-/**
- * 报表查询
- */
-@RequestMapping("/admin")
 @Controller
-public class AdminStatementController extends BaseController {
+@RequestMapping("/su-admin")
+public class SuperAdminController extends BaseController {
 
 }
