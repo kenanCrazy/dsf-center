@@ -209,3 +209,50 @@ INSERT INTO `dsf_center_master`.`t_schema`(`id`, `schema_name`, `simple_name`, `
 INSERT INTO `dsf_center_master`.`t_site_url`(`id`, `site_id`, `site_code`, `site_url`) VALUES (1, 1, 'test', 'www.test.com');
 
 INSERT INTO `dsf_center_master`.`t_site`(`id`, `site_code`, `site_name`, `schema_name`, `is_api`, `currency`, `company_id`, `start_date`, `end_date`, `available`, `use_time`, `memo`, `create_user`, `create_time`, `modify_user`, `modify_time`, `company_user`) VALUES (1, 'test', 'test', 'a001', 1, 'RMB', NULL, '2019-02-15 17:23:36', '2019-02-15 17:23:36', 1, '2019-02-15 17:23:36', NULL, 'rmi', '2019-02-15 17:23:36', 'rmi', '2019-02-15 17:22:44', NULL);
+
+
+
+CREATE TABLE `dsf_statements_player_day_{{month}}` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `brand` varchar(20) NOT NULL COMMENT '品牌',
+  `game_platform` varchar(20) NOT NULL COMMENT '游戏平台',
+  `task_times` int(4) unsigned zerofill DEFAULT NULL COMMENT '统计次数',
+  `day` datetime NOT NULL COMMENT '日期',
+  `total_bet` decimal(10,2) NOT NULL COMMENT '总投注',
+  `bet_count` bigint(11) NOT NULL COMMENT '注单量',
+  `total_win` decimal(10,2) NOT NULL COMMENT '总赢得',
+  `total_notsettled` decimal(10,2) unsigned zerofill DEFAULT '00000000.00' COMMENT '未结算(只有日报表有数据)',
+  `player_id` varchar(20) NOT NULL COMMENT '玩家Id',
+  `player_name` varchar(64) NOT NULL COMMENT '玩家名称',
+  `category_name` varchar(40) NOT NULL COMMENT '游戏类型',
+  `result` decimal(10,2) NOT NULL COMMENT '总输赢',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `rebate_amount` decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT '返水',
+  `total_member_exposure` decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT '玩家实际投注',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `player_day_uion` (`game_platform`,`day`,`player_id`,`category_name`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=3434 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+
+
+
+CREATE TABLE `dsf_statements_month` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `site_code` varchar(20) NOT NULL COMMENT '站点',
+  `game_platform` varchar(20) NOT NULL COMMENT '游戏平台',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '开始时间',
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '结束时间',
+  `total_bet` decimal(10,2) NOT NULL COMMENT '总收入',
+  `bet_count` bigint(11) NOT NULL COMMENT '注单量',
+  `total_win` decimal(10,2) NOT NULL COMMENT '总赢得',
+  `player_result` decimal(10,2) NOT NULL COMMENT '输赢后结果',
+  `mon` varchar(10) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `platform_frand` (`brand`,`game_platform`,`mon`)
+) ENGINE=InnoDB AUTO_INCREMENT=134 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+
+
+
+
+
+

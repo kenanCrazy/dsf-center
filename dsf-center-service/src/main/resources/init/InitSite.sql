@@ -204,3 +204,45 @@ CREATE TABLE `transfer_log` (
   KEY `combo3` (`api_name`),
   KEY `combo6` (`game_platform`,`dsf_player_id`,`create_time`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+
+
+
+CREATE TABLE `dsf_statements_player_day_{{month}}` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `account_id` bigint(20) NOT NULL,
+  `site_code` varchar(20) NOT NULL COMMENT '站点',
+  `game_platform` varchar(20) NOT NULL COMMENT '游戏平台',
+  `day` datetime NOT NULL COMMENT '日期',
+  `total_bet` decimal(10,2) NOT NULL COMMENT '总投注',
+  `bet_count` bigint(11) NOT NULL COMMENT '注单量',
+  `total_win` decimal(10,2) NOT NULL COMMENT '总赢得',
+  `total_notsettled` decimal(10,2) unsigned zerofill DEFAULT '00000000.00' COMMENT '未结算(只有日报表有数据)',
+  `dsf_player_id` varchar(20) NOT NULL COMMENT '第三方玩家Id',
+  `nickname` varchar(64) NOT NULL COMMENT '玩家名称',
+  `category_name` varchar(40) NOT NULL COMMENT '游戏类型',
+  `result` decimal(10,2) NOT NULL COMMENT '总输赢',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `rebate_amount` decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT '返水',
+  `total_member_exposure` decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT '玩家实际投注',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `player_day_uion` (`game_platform`,`day`,`player_id`,`category_name`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=3434 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+
+
+CREATE TABLE `dsf_statements_month` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `site_code` varchar(20) NOT NULL COMMENT '站点',
+  `game_platform` varchar(20) NOT NULL COMMENT '游戏平台',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '开始时间',
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '结束时间',
+  `total_bet` decimal(10,2) NOT NULL COMMENT '总收入',
+  `bet_count` bigint(11) NOT NULL COMMENT '注单量',
+  `total_win` decimal(10,2) NOT NULL COMMENT '总赢得',
+  `player_result` decimal(10,2) NOT NULL COMMENT '输赢后结果',
+  `mon` varchar(10) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `platform_frand` (`brand`,`game_platform`,`mon`)
+) ENGINE=InnoDB AUTO_INCREMENT=134 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+
+
